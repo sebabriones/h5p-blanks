@@ -14,6 +14,117 @@ H5P.BlanksCFRD = (function ($, Question) {
   const XAPI_REPORTING_VERSION_EXTENSION = 'https://h5p.org/x-api/h5p-reporting-version';
 
   /**
+   * @param {*} value
+   * @returns {boolean}
+   */
+  function isTruthy(value) {
+    return value === true || value === 1 || value === '1' || value === 'true';
+  }
+
+  /**
+   * @param {H5P.BlanksCFRD} instance
+   * @returns {Object|null}
+   */
+  function getInstructionsOptions(instance) {
+    var instructions = instance && instance.params && instance.params.instructions;
+    var text;
+
+    if (!instructions || !isTruthy(instructions.enabled)) {
+      return null;
+    }
+
+    text = (instructions.text === undefined || instructions.text === null) ?
+      '' :
+      String(instructions.text).trim();
+
+    if (!text) {
+      return null;
+    }
+
+    return {
+      id: instance.contentId || instance.id,
+      text: text,
+      displayMode: instructions.displayMode || 'both',
+      introButtonLabel: instructions.introButtonLabel || 'Start',
+      tabButtonLabel: instructions.tabButtonLabel || 'Instructions',
+      tabButtonLabelOpen: instructions.tabButtonLabelOpen,
+      appearance: $.extend(true, {}, instructions.appearance || {}),
+      animation: $.extend(true, {}, instructions.animation || {}),
+      startCollapsed: instructions.startCollapsed === undefined ?
+        true :
+        isTruthy(instructions.startCollapsed)
+    };
+  }
+
+  /**
+   * Embebida en Course Presentation: el padre gestiona la introducción.
+   *
+   * @param {H5P.BlanksCFRD} instance
+   * @returns {boolean}
+   */
+  function isEmbeddedInstance(instance) {
+    return !!(instance && typeof instance.isRoot === 'function' && !instance.isRoot());
+  }
+
+  /**
+   * @param {H5P.BlanksCFRD} instance
+   * @param {H5P.jQuery} $fallbackContainer
+   */
+  function scheduleInstructionsAttach(instance, $fallbackContainer) {
+    if (isEmbeddedInstance(instance)) {
+      return;
+    }
+
+    [0, 200, 500].forEach(function (delay) {
+      setTimeout(function () {
+        var instructions = getInstructionsOptions(instance);
+        var $target = (instance.$instructionsTarget && instance.$instructionsTarget.length) ?
+          instance.$instructionsTarget :
+          $fallbackContainer;
+        var attached;
+
+        if (!instructions || !$target || !$target.length) {
+          return;
+        }
+
+        if (
+          $target.find('.h5p-instructions-root').length ||
+          ($target.parent().length && $target.parent().children('.h5p-instructions-root').length)
+        ) {
+          instance.trigger('resize');
+          return;
+        }
+
+        if (H5P.Instructions && typeof H5P.Instructions.attach === 'function') {
+          attached = H5P.Instructions.attach($target, instructions);
+
+          if (attached) {
+            instance.trigger('resize');
+          }
+        }
+      }, delay);
+    });
+  }
+
+  /**
+   * @param {H5P.BlanksCFRD} instance
+   */
+  function refreshInstructionsScale(instance) {
+    var instructions = getInstructionsOptions(instance);
+    var $target = (instance.$instructionsTarget && instance.$instructionsTarget.length) ?
+      instance.$instructionsTarget :
+      null;
+
+    if (!instructions || !$target || !$target.length) {
+      return;
+    }
+
+    if (H5P.Instructions && typeof H5P.Instructions.updateScale === 'function') {
+      H5P.Instructions.updateScale($target, instructions);
+    }
+  }
+
+  /**
    * @typedef {Object} Params
    *  Parameters/configuration object for Blanks
    *
@@ -88,6 +199,7 @@ H5P.BlanksCFRD = (function ($, Question) {
       a11yRetry: 'Retry the task. Reset all responses and start the task over again.',
       a11yHeader: 'Checking mode',
       submitAnswer: 'Submit',
+      instructions: {},
     }, params);
 
     // Delete empty questions
@@ -167,6 +279,21 @@ H5P.BlanksCFRD = (function ($, Question) {
 
     // Restore previous state
     self.setH5PUserState();
+
+    var originalAttach = self.attach;
+    self.attach = function ($container) {
+      self.$container = $container;
+      self.$instructionsTarget = $container;
+      originalAttach.call(self, $container);
+      scheduleInstructionsAttach(self, $container);
+    };
+
+    self.on('resize', function () {
+      if (isEmbeddedInstance(self)) {
+        return;
+      }
+      refreshInstructionsScale(self);
+    });
   }
 
   // Inheritance
