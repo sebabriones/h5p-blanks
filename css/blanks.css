@@ -78,6 +78,7 @@
   padding: 0.75em 1em;
   display: flex;
   flex-direction: column;
+  background-color: var(--blanks-play-area-bg, #ffffff);
 }
 
 .h5p-has-instructions-tab .h5p-blanks-play-area,
@@ -121,9 +122,9 @@
 }
 
 .h5p-blanks-cfrd .h5p-blanks-context-text {
-  font-size: 1em;
-  line-height: 1.5;
-  color: #555555;
+  font-size: var(--blanks-context-font-size, 1em);
+  line-height: var(--blanks-context-line-height, 1.5);
+  color: var(--blanks-context-color, #555555);
 }
 
 .h5p-blanks-cfrd .h5p-blanks-context-text p {
@@ -152,11 +153,20 @@
   display: block;
 }
 
-.h5p-blanks-cfrd .h5p-blanks-question-column {
+.h5p-blanks-cfrd .h5p-blanks-question-column,
+.h5p-blanks-cfrd .h5p-question-content:not(:has(.h5p-blanks-slide-layout)) {
   min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: safe center;
+  color: var(--blanks-question-color, #333333);
+  font-size: var(--blanks-question-font-size, 1em);
+  line-height: var(--blanks-question-line-height, 1.75);
+  background: var(--blanks-question-bg, transparent);
+  padding: var(--blanks-question-padding, 0);
+  border-radius: var(--blanks-question-radius, 0);
+  border: var(--blanks-question-border, none);
+  box-sizing: border-box;
 }
 
 .h5p-blanks-cfrd .h5p-blanks-context--text-only .h5p-blanks-context-media,
@@ -176,8 +186,10 @@
 .h5p-blanks-cfrd .h5p-text-input {
   font-family: H5PDroidSans, sans-serif;
   font-size: 1em;
-  border-radius: 0.25em;
-  border: 1px solid #a0a0a0;
+  border-radius: var(--blanks-input-radius, 0.25em);
+  border: var(--blanks-input-border-width, 1px) solid var(--blanks-input-border-color, #a0a0a0);
+  background: var(--blanks-input-bg, #ffffff);
+  color: var(--blanks-input-color, #333333);
   padding: 0.1875em 1em 0.1875em 0.5em;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -186,14 +198,14 @@
 }
 .h5p-blanks-cfrd .h5p-text-input:focus {
   outline: none;
-  box-shadow: 0 0 0.5em 0 #6391CA;
-  border-color: #6391CA;
+  box-shadow: 0 0 0.5em 0 var(--blanks-input-focus, #6391CA);
+  border-color: var(--blanks-input-focus, #6391CA);
 }
 .h5p-blanks-cfrd .h5p-text-input:disabled {
   opacity: 1;
 }
 .h5p-blanks-cfrd .h5p-text-input.h5p-not-filled-out {
-  background: #fff0f0;
+  background: var(--blanks-input-empty-bg, #fff0f0);
 }
 .h5p-blanks-cfrd .h5p-separate-lines .h5p-input-wrapper {
   display: block;
@@ -206,15 +218,15 @@
 
 /* Correctly answered input */
 .h5p-blanks-cfrd .h5p-correct .h5p-text-input {
-  background: #9dd8bb;
-  border: 1px solid #9dd8bb;
-  color: #255c41;
+  background: var(--blanks-correct-bg, #9dd8bb);
+  border-color: var(--blanks-correct-bg, #9dd8bb);
+  color: var(--blanks-correct-color, #255c41);
 }
 /* Showing solution */
 .h5p-blanks-cfrd .h5p-correct-answer {
-  color: #255c41;
+  color: var(--blanks-solution-color, #255c41);
   font-weight: bold;
-  border: 1px #255c41 dashed;
+  border: 1px var(--blanks-solution-color, #255c41) dashed;
   background-color: #d4f6e6;
   padding: 0.15em;
   border-radius: 0.25em;
@@ -227,14 +239,14 @@
   text-decoration: none;
   content: "\f00c";
   font-family: 'H5PFontAwesome4';
-  color: #255c41;
+  color: var(--blanks-correct-icon, #255c41);
 }
 
 /* Wrongly answered input */
 .h5p-blanks-cfrd .h5p-wrong .h5p-text-input {
-  background-color: #f7d0d0;
-  border: 1px solid #f7d0d0;
-  color: #b71c1c;
+  background-color: var(--blanks-wrong-bg, #f7d0d0);
+  border-color: var(--blanks-wrong-bg, #f7d0d0);
+  color: var(--blanks-wrong-color, #b71c1c);
   text-decoration: line-through;
 }
 .h5p-blanks-cfrd .h5p-wrong:after {
@@ -244,12 +256,12 @@
   font-family: 'H5PFontAwesome4';
   text-decoration: none;
   content: "\f00d";
-  color: #b71c1c;
+  color: var(--blanks-wrong-icon, #b71c1c);
 }
 
 /* Actual text paragraphs */
 .h5p-blanks-cfrd .h5p-question-content p {
-  line-height: 1.75em;
+  line-height: inherit;
   margin: 0 0 1em;
 }
 
@@ -261,6 +273,7 @@
 }
 .h5p-blanks-cfrd .joubel-tip-container .joubel-icon-tip-normal {
   line-height: 1em;
+  color: var(--blanks-tip-color, inherit);
 }
 .h5p-blanks-cfrd .has-tip .h5p-text-input {
   padding-right: 2.25em;

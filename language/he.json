@@ -561,5 +561,225 @@
       "label": "תיאור טכנולוגיה מסייעת עבור משימה התחלתית",
       "default": "מצב בדיקה"
     }
-  ]
+  ,
+    {
+      "label": "Appearance",
+      "fields": [
+        {
+          "label": "Play area background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Text",
+          "fields": [
+            {
+              "label": "Question text color",
+              "default": "#333333"
+            },
+            {
+              "label": "Question font size",
+              "description": "Size in em units.",
+              "default": 1
+            },
+            {
+              "label": "Question line height",
+              "default": 1.75
+            },
+            {
+              "label": "Context text color",
+              "default": "#555555"
+            },
+            {
+              "label": "Context font size",
+              "description": "Size in em units.",
+              "default": 1
+            },
+            {
+              "label": "Context line height",
+              "default": 1.5
+            }
+          ]
+        },
+        {
+          "label": "Question area",
+          "fields": [
+            {
+              "label": "Question background color",
+              "description": "Leave empty for a transparent background."
+            },
+            {
+              "label": "Question padding",
+              "description": "Inner padding in em units on all sides.",
+              "default": 0
+            },
+            {
+              "label": "Question border radius",
+              "description": "Corner roundness in em units.",
+              "default": 0
+            },
+            {
+              "label": "Use question border",
+              "default": false
+            },
+            {
+              "label": "Border settings",
+              "fields": [
+                {
+                  "label": "Border width",
+                  "description": "Thickness in em units.",
+                  "default": 0.05
+                },
+                {
+                  "label": "Border color",
+                  "default": "#cccccc"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Blank",
+          "fields": [
+            {
+              "label": "Blank background color",
+              "default": "#ffffff"
+            },
+            {
+              "label": "Blank text color",
+              "default": "#333333"
+            },
+            {
+              "label": "Blank border color",
+              "default": "#a0a0a0"
+            },
+            {
+              "label": "Blank border width",
+              "description": "Thickness in pixels.",
+              "default": 1
+            },
+            {
+              "label": "Blank border radius",
+              "description": "Corner roundness in em units.",
+              "default": 0.25
+            },
+            {
+              "label": "Blank focus color",
+              "default": "#6391CA"
+            },
+            {
+              "label": "Unfilled blank background color",
+              "default": "#fff0f0"
+            }
+          ]
+        },
+        {
+          "label": "Correct answer",
+          "fields": [
+            {
+              "label": "Correct background color",
+              "default": "#9dd8bb"
+            },
+            {
+              "label": "Correct text color",
+              "default": "#255c41"
+            },
+            {
+              "label": "Correct icon color",
+              "default": "#255c41"
+            }
+          ]
+        },
+        {
+          "label": "Wrong answer",
+          "fields": [
+            {
+              "label": "Wrong background color",
+              "default": "#f7d0d0"
+            },
+            {
+              "label": "Wrong text color",
+              "default": "#b71c1c"
+            },
+            {
+              "label": "Wrong icon color",
+              "default": "#b71c1c"
+            }
+          ]
+        },
+        {
+          "label": "Solution text color",
+          "default": "#255c41"
+        },
+        {
+          "label": "Tip icon color"
+        },
+        {
+          "label": "Action buttons (Check, Retry and Show solution)",
+          "description": "Shared style for Check, Try again and Show solution buttons. Border colors apply only when border is enabled.",
+          "fields": [
+            {
+              "label": "Use gradient background",
+              "default": false
+            },
+            {
+              "label": "Button background color",
+              "default": "#1a73d9"
+            },
+            {
+              "label": "Gradient background",
+              "fields": [
+                {
+                  "label": "Gradient angle",
+                  "description": "Direction in degrees (0 = upward, 180 = downward).",
+                  "default": 180
+                },
+                {
+                  "label": "Gradient start color",
+                  "default": "#1a73d9"
+                },
+                {
+                  "label": "Gradient end color",
+                  "default": "#1a73d9"
+                }
+              ]
+            },
+            {
+              "label": "Button text color",
+              "default": "#ffffff"
+            },
+            {
+              "label": "Button hover background color",
+              "default": "#1356a3"
+            },
+            {
+              "label": "Button hover text color",
+              "default": "#ffffff"
+            },
+            {
+              "label": "Use button border",
+              "default": false
+            },
+            {
+              "label": "Border settings",
+              "fields": [
+                {
+                  "label": "Button border color",
+                  "default": "#1a73d9"
+                },
+                {
+                  "label": "Button hover border color",
+                  "default": "#1356a3"
+                }
+              ]
+            },
+            {
+              "label": "Button border radius",
+              "description": "Default is 2em (Joubel UI). Lower values are sharper; higher values are more rounded.",
+              "default": 2
+            }
+          ]
+        }
+      ]
+    }
+]
 }

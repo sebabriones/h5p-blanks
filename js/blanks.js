@@ -1,5 +1,5 @@
 /*global H5P*/
-(function (PlayArea) {
+(function (PlayArea, AppearanceModule) {
 H5P.BlanksCFRD = (function ($, Question) {
   /**
    * @constant
@@ -405,6 +405,45 @@ H5P.BlanksCFRD = (function ($, Question) {
   /**
    * @param {H5P.BlanksCFRD} instance
    */
+  function applyActivityAppearance(instance) {
+    var appearance;
+
+    if (!AppearanceModule || !instance) {
+      return;
+    }
+
+    appearance = instance.params && instance.params.appearance;
+
+    if (instance.$container && instance.$container.length) {
+      AppearanceModule.scheduleAppearance(instance.$container, appearance);
+    }
+
+    if (instance.$playArea && instance.$playArea.length) {
+      AppearanceModule.scheduleAppearance(instance.$playArea, appearance);
+    }
+  }
+
+  /**
+   * @param {H5P.BlanksCFRD} instance
+   */
+  function applyActionButtonAppearance(instance) {
+    var actionButtons = instance.params &&
+      instance.params.appearance &&
+      instance.params.appearance.actionButtons;
+
+    if (!actionButtons || typeof instance.setActionButtonAppearance !== 'function') {
+      return;
+    }
+
+    if (H5P.QuestionCFRD.hasActionButtonAppearance &&
+        H5P.QuestionCFRD.hasActionButtonAppearance(actionButtons)) {
+      instance.setActionButtonAppearance(actionButtons);
+    }
+  }
+
+  /**
+   * @param {H5P.BlanksCFRD} instance
+   */
   function registerQuestionContent(instance) {
     var context = instance.params.context;
     var layoutClass = getContextLayoutClass(context);
@@ -527,6 +566,7 @@ H5P.BlanksCFRD = (function ($, Question) {
       scoreBarLabel: 'You got :num out of :total points',
       feedbackPopupCloseLabel: 'Close',
       showFeedbackButtonLabel: 'Show feedback',
+      appearance: {},
       behaviour: {
         enableRetry: true,
         enableSolutionsButton: true,
@@ -624,6 +664,8 @@ H5P.BlanksCFRD = (function ($, Question) {
       }
 
       scheduleDeferredResize(self);
+      applyActivityAppearance(self);
+      applyActionButtonAppearance(self);
     };
 
     self.on('resize', function () {
@@ -668,6 +710,7 @@ H5P.BlanksCFRD = (function ($, Question) {
 
       if (scaleChanged) {
         self._blanksLastScaleKey = scaleKey;
+        applyActivityAppearance(self);
         if (!isEmbeddedInstance(self)) {
           refreshInstructionsScale(self);
         }
@@ -1545,7 +1588,10 @@ H5P.BlanksCFRD = (function ($, Question) {
 if (PlayArea) {
   H5P.BlanksCFRD.PlayArea = PlayArea;
 }
-})(H5P.BlanksCFRD && H5P.BlanksCFRD.PlayArea);
+if (AppearanceModule) {
+  H5P.BlanksCFRD.Appearance = AppearanceModule;
+}
+})(H5P.BlanksCFRD && H5P.BlanksCFRD.PlayArea, H5P.BlanksCFRD && H5P.BlanksCFRD.Appearance);
 
 /**
  * Static utility method for parsing H5P.BlanksCFRD qestion into a format useful

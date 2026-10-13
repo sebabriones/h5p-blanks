@@ -560,5 +560,225 @@
       "label": "Descripción para las tecnologías de asistencia para indicar que se inicia la tarea",
       "default": "Modo de Comprobación"
     }
-  ]
+  ,
+    {
+      "label": "Apariencia",
+      "fields": [
+        {
+          "label": "Color de fondo del área de juego",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Texto",
+          "fields": [
+            {
+              "label": "Color del texto de la oración",
+              "default": "#333333"
+            },
+            {
+              "label": "Tamaño de letra de la oración",
+              "description": "Tamaño en unidades em.",
+              "default": 1
+            },
+            {
+              "label": "Altura de línea de la oración",
+              "default": 1.75
+            },
+            {
+              "label": "Color del texto de contexto",
+              "default": "#555555"
+            },
+            {
+              "label": "Tamaño de letra del contexto",
+              "description": "Tamaño en unidades em.",
+              "default": 1
+            },
+            {
+              "label": "Altura de línea del contexto",
+              "default": 1.5
+            }
+          ]
+        },
+        {
+          "label": "Área de la pregunta",
+          "fields": [
+            {
+              "label": "Color de fondo de la pregunta",
+              "description": "Vacío para un fondo transparente."
+            },
+            {
+              "label": "Relleno de la pregunta",
+              "description": "Relleno interior en unidades em en todos los lados.",
+              "default": 0
+            },
+            {
+              "label": "Radio del borde de la pregunta",
+              "description": "Redondez de las esquinas en unidades em.",
+              "default": 0
+            },
+            {
+              "label": "Usar borde de la pregunta",
+              "default": false
+            },
+            {
+              "label": "Configuración del borde",
+              "fields": [
+                {
+                  "label": "Grosor del borde",
+                  "description": "Grosor en unidades em.",
+                  "default": 0.05
+                },
+                {
+                  "label": "Color del borde",
+                  "default": "#cccccc"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Hueco",
+          "fields": [
+            {
+              "label": "Color de fondo del hueco",
+              "default": "#ffffff"
+            },
+            {
+              "label": "Color del texto del hueco",
+              "default": "#333333"
+            },
+            {
+              "label": "Color del borde del hueco",
+              "default": "#a0a0a0"
+            },
+            {
+              "label": "Grosor del borde del hueco",
+              "description": "Grosor en píxeles.",
+              "default": 1
+            },
+            {
+              "label": "Radio del borde del hueco",
+              "description": "Redondez de las esquinas en unidades em.",
+              "default": 0.25
+            },
+            {
+              "label": "Color de foco del hueco",
+              "default": "#6391CA"
+            },
+            {
+              "label": "Color de fondo del hueco sin completar",
+              "default": "#fff0f0"
+            }
+          ]
+        },
+        {
+          "label": "Respuesta correcta",
+          "fields": [
+            {
+              "label": "Color de fondo de la respuesta correcta",
+              "default": "#9dd8bb"
+            },
+            {
+              "label": "Color del texto de la respuesta correcta",
+              "default": "#255c41"
+            },
+            {
+              "label": "Color del ícono de la respuesta correcta",
+              "default": "#255c41"
+            }
+          ]
+        },
+        {
+          "label": "Respuesta incorrecta",
+          "fields": [
+            {
+              "label": "Color de fondo de la respuesta incorrecta",
+              "default": "#f7d0d0"
+            },
+            {
+              "label": "Color del texto de la respuesta incorrecta",
+              "default": "#b71c1c"
+            },
+            {
+              "label": "Color del ícono de la respuesta incorrecta",
+              "default": "#b71c1c"
+            }
+          ]
+        },
+        {
+          "label": "Color del texto de la solución",
+          "default": "#255c41"
+        },
+        {
+          "label": "Color del ícono de pista"
+        },
+        {
+          "label": "Botones de acción (Comprobar, Intentar de nuevo y Mostrar solución)",
+          "description": "Estilo compartido de los botones Comprobar, Intentar de nuevo y Mostrar solución. Los colores de borde se aplican solo si el borde está activo.",
+          "fields": [
+            {
+              "label": "Usar fondo en degradado",
+              "default": false
+            },
+            {
+              "label": "Color de fondo del botón",
+              "default": "#1a73d9"
+            },
+            {
+              "label": "Fondo en degradado",
+              "fields": [
+                {
+                  "label": "Ángulo del degradado",
+                  "description": "Dirección en grados (0 = hacia arriba, 180 = hacia abajo).",
+                  "default": 180
+                },
+                {
+                  "label": "Color inicial del degradado",
+                  "default": "#1a73d9"
+                },
+                {
+                  "label": "Color final del degradado",
+                  "default": "#1a73d9"
+                }
+              ]
+            },
+            {
+              "label": "Color del texto del botón",
+              "default": "#ffffff"
+            },
+            {
+              "label": "Color de fondo del botón al pasar el cursor",
+              "default": "#1356a3"
+            },
+            {
+              "label": "Color del texto del botón al pasar el cursor",
+              "default": "#ffffff"
+            },
+            {
+              "label": "Usar borde del botón",
+              "default": false
+            },
+            {
+              "label": "Configuración del borde",
+              "fields": [
+                {
+                  "label": "Color del borde del botón",
+                  "default": "#1a73d9"
+                },
+                {
+                  "label": "Color del borde del botón al pasar el cursor",
+                  "default": "#1356a3"
+                }
+              ]
+            },
+            {
+              "label": "Radio del borde del botón",
+              "description": "El valor por defecto es 2em. Valores menores son más angulosos; valores mayores, más redondeados.",
+              "default": 2
+            }
+          ]
+        }
+      ]
+    }
+]
 }

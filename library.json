@@ -5,7 +5,7 @@
   "machineName": "H5P.BlanksCFRD",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 5,
+  "patchVersion": 6,
   "runnable": 1,
   "license": "MIT",
   "author": "sbriones (CFRD-UDEC)",
@@ -24,6 +24,9 @@
   "preloadedJs": [
     {
       "path": "js/play-area-scale.js"
+    },
+    {
+      "path": "js/appearance.js"
     },
     {
       "path": "js/blanks.js"

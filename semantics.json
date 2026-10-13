@@ -1317,4 +1317,550 @@
     "importance": "low",
     "common": true
   }
+,
+  {
+    "name": "appearance",
+    "type": "group",
+    "label": "Appearance",
+    "importance": "low",
+    "optional": true,
+    "fields": [
+      {
+        "name": "playAreaBackground",
+        "type": "text",
+        "widget": "colorSelector",
+        "label": "Play area background color",
+        "optional": true,
+        "spectrum": {
+          "showInput": true
+        },
+        "default": "#ffffff"
+      },
+      {
+        "name": "text",
+        "type": "group",
+        "label": "Text",
+        "importance": "low",
+        "optional": true,
+        "fields": [
+          {
+            "name": "question",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Question text color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#333333"
+          },
+          {
+            "name": "questionFontSize",
+            "type": "number",
+            "label": "Question font size",
+            "description": "Size in em units.",
+            "default": 1,
+            "min": 0.5,
+            "max": 3,
+            "decimals": 2,
+            "unit": "em"
+          },
+          {
+            "name": "questionLineHeight",
+            "type": "number",
+            "label": "Question line height",
+            "default": 1.75,
+            "min": 1,
+            "max": 3,
+            "decimals": 2
+          },
+          {
+            "name": "context",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Context text color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#555555"
+          },
+          {
+            "name": "contextFontSize",
+            "type": "number",
+            "label": "Context font size",
+            "description": "Size in em units.",
+            "default": 1,
+            "min": 0.5,
+            "max": 3,
+            "decimals": 2,
+            "unit": "em"
+          },
+          {
+            "name": "contextLineHeight",
+            "type": "number",
+            "label": "Context line height",
+            "default": 1.5,
+            "min": 1,
+            "max": 3,
+            "decimals": 2
+          }
+        ]
+      },
+      {
+        "name": "questionArea",
+        "type": "group",
+        "label": "Question area",
+        "importance": "low",
+        "optional": true,
+        "fields": [
+          {
+            "name": "background",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Question background color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "description": "Leave empty for a transparent background."
+          },
+          {
+            "name": "padding",
+            "type": "number",
+            "label": "Question padding",
+            "description": "Inner padding in em units on all sides.",
+            "default": 0,
+            "min": 0,
+            "max": 3,
+            "decimals": 2,
+            "unit": "em"
+          },
+          {
+            "name": "borderRadius",
+            "type": "number",
+            "label": "Question border radius",
+            "description": "Corner roundness in em units.",
+            "default": 0,
+            "min": 0,
+            "max": 3,
+            "decimals": 2,
+            "unit": "em"
+          },
+          {
+            "name": "useBorder",
+            "type": "boolean",
+            "label": "Use question border",
+            "default": false
+          },
+          {
+            "name": "borderSettings",
+            "type": "group",
+            "label": "Border settings",
+            "importance": "low",
+            "widget": "showWhen",
+            "showWhen": {
+              "rules": [
+                {
+                  "field": "useBorder",
+                  "equals": true
+                }
+              ]
+            },
+            "fields": [
+              {
+                "name": "borderWidth",
+                "type": "number",
+                "label": "Border width",
+                "description": "Thickness in em units.",
+                "default": 0.05,
+                "min": 0,
+                "max": 0.5,
+                "decimals": 2,
+                "unit": "em"
+              },
+              {
+                "name": "borderColor",
+                "type": "text",
+                "widget": "colorSelector",
+                "label": "Border color",
+                "optional": true,
+                "spectrum": {
+                  "showInput": true
+                },
+                "default": "#cccccc"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "blank",
+        "type": "group",
+        "label": "Blank",
+        "importance": "low",
+        "optional": true,
+        "fields": [
+          {
+            "name": "background",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Blank background color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#ffffff"
+          },
+          {
+            "name": "text",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Blank text color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#333333"
+          },
+          {
+            "name": "borderColor",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Blank border color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#a0a0a0"
+          },
+          {
+            "name": "borderWidth",
+            "type": "number",
+            "label": "Blank border width",
+            "description": "Thickness in pixels.",
+            "default": 1,
+            "min": 0,
+            "max": 8,
+            "decimals": 0,
+            "unit": "px"
+          },
+          {
+            "name": "borderRadius",
+            "type": "number",
+            "label": "Blank border radius",
+            "description": "Corner roundness in em units.",
+            "default": 0.25,
+            "min": 0,
+            "max": 2,
+            "decimals": 2,
+            "unit": "em"
+          },
+          {
+            "name": "focusColor",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Blank focus color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#6391CA"
+          },
+          {
+            "name": "emptyBackground",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Unfilled blank background color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#fff0f0"
+          }
+        ]
+      },
+      {
+        "name": "correct",
+        "type": "group",
+        "label": "Correct answer",
+        "importance": "low",
+        "optional": true,
+        "fields": [
+          {
+            "name": "background",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Correct background color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#9dd8bb"
+          },
+          {
+            "name": "text",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Correct text color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#255c41"
+          },
+          {
+            "name": "icon",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Correct icon color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#255c41"
+          }
+        ]
+      },
+      {
+        "name": "wrong",
+        "type": "group",
+        "label": "Wrong answer",
+        "importance": "low",
+        "optional": true,
+        "fields": [
+          {
+            "name": "background",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Wrong background color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#f7d0d0"
+          },
+          {
+            "name": "text",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Wrong text color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#b71c1c"
+          },
+          {
+            "name": "icon",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Wrong icon color",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            },
+            "default": "#b71c1c"
+          }
+        ]
+      },
+      {
+        "name": "solutionColor",
+        "type": "text",
+        "widget": "colorSelector",
+        "label": "Solution text color",
+        "optional": true,
+        "spectrum": {
+          "showInput": true
+        },
+        "default": "#255c41"
+      },
+      {
+        "name": "tipColor",
+        "type": "text",
+        "widget": "colorSelector",
+        "label": "Tip icon color",
+        "optional": true,
+        "spectrum": {
+          "showInput": true
+        }
+      },
+      {
+        "name": "actionButtons",
+        "type": "group",
+        "label": "Action buttons (Check, Retry and Show solution)",
+        "importance": "low",
+        "optional": true,
+        "expanded": false,
+        "description": "Shared style for Check, Try again and Show solution buttons. Border colors apply only when border is enabled.",
+        "fields": [
+          {
+            "name": "useGradientBackground",
+            "type": "boolean",
+            "label": "Use gradient background",
+            "default": false
+          },
+          {
+            "name": "backgroundColor",
+            "type": "text",
+            "label": "Button background color",
+            "default": "#1a73d9",
+            "optional": true,
+            "widget": "showWhen",
+            "showWhen": {
+              "widget": "colorSelector",
+              "rules": [
+                {
+                  "field": "useGradientBackground",
+                  "equals": false
+                }
+              ]
+            },
+            "spectrum": {
+              "showInput": true
+            }
+          },
+          {
+            "name": "gradientBackground",
+            "type": "group",
+            "label": "Gradient background",
+            "importance": "low",
+            "widget": "showWhen",
+            "showWhen": {
+              "rules": [
+                {
+                  "field": "useGradientBackground",
+                  "equals": true
+                }
+              ]
+            },
+            "fields": [
+              {
+                "name": "angle",
+                "type": "number",
+                "label": "Gradient angle",
+                "description": "Direction in degrees (0 = upward, 180 = downward).",
+                "default": 180,
+                "min": 0,
+                "max": 360,
+                "step": 1,
+                "unit": "°"
+              },
+              {
+                "name": "colorStart",
+                "type": "text",
+                "widget": "colorSelector",
+                "label": "Gradient start color",
+                "default": "#1a73d9",
+                "optional": true,
+                "spectrum": {
+                  "showInput": true
+                }
+              },
+              {
+                "name": "colorEnd",
+                "type": "text",
+                "widget": "colorSelector",
+                "label": "Gradient end color",
+                "default": "#1a73d9",
+                "optional": true,
+                "spectrum": {
+                  "showInput": true
+                }
+              }
+            ]
+          },
+          {
+            "name": "textColor",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Button text color",
+            "default": "#ffffff",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            }
+          },
+          {
+            "name": "hoverBackgroundColor",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Button hover background color",
+            "default": "#1356a3",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            }
+          },
+          {
+            "name": "hoverTextColor",
+            "type": "text",
+            "widget": "colorSelector",
+            "label": "Button hover text color",
+            "default": "#ffffff",
+            "optional": true,
+            "spectrum": {
+              "showInput": true
+            }
+          },
+          {
+            "name": "useBorder",
+            "type": "boolean",
+            "label": "Use button border",
+            "default": false
+          },
+          {
+            "name": "borderSettings",
+            "type": "group",
+            "label": "Border settings",
+            "importance": "low",
+            "widget": "showWhen",
+            "showWhen": {
+              "rules": [
+                {
+                  "field": "useBorder",
+                  "equals": true
+                }
+              ]
+            },
+            "fields": [
+              {
+                "name": "borderColor",
+                "type": "text",
+                "widget": "colorSelector",
+                "label": "Button border color",
+                "default": "#1a73d9",
+                "optional": true,
+                "spectrum": {
+                  "showInput": true
+                }
+              },
+              {
+                "name": "hoverBorderColor",
+                "type": "text",
+                "widget": "colorSelector",
+                "label": "Button hover border color",
+                "default": "#1356a3",
+                "optional": true,
+                "spectrum": {
+                  "showInput": true
+                }
+              }
+            ]
+          },
+          {
+            "name": "borderRadius",
+            "type": "number",
+            "label": "Button border radius",
+            "description": "Default is 2em (Joubel UI). Lower values are sharper; higher values are more rounded.",
+            "default": 2,
+            "min": 0,
+            "max": 4,
+            "decimals": 2,
+            "unit": "em"
+          }
+        ]
+      }
+    ]
+  }
 ]
