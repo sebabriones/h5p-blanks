@@ -320,6 +320,14 @@
       "label": "Splošna povratna informacija",
       "fields": [
         {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
+        {
           "widgets": [
             {
               "label": "Privzeto"
@@ -337,13 +345,85 @@
               {
                 "label": "Povratna informacija za definiran razpon rezultatov",
                 "placeholder": "Vnesite povratno informacijo"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Nastavitve interakcije",
+      "description": "Nastavitve omogočajo nadzor nad interakcijo aktivnosti za udeležence.",
+      "fields": [
+        {
+          "label": "Omogoči gumb \"Poskusi ponovno\""
+        },
+        {
+          "label": "Omogoči gumb \"Prikaži rešitev\""
+        },
+        {
+          "label": "Omogoči gumb \"Preveri\""
+        },
+        {
+          "label": "Prikaži dosežene točke",
+          "description": "Dosežene točke prikaže pri vsakem oddanem odgovoru."
+        }
+      ]
+    },
     {
+      "label": "Besedilo za pravilen odgovor",
+      "default": "Pravilno!",
+      "description": "Besedilo označuje pravilen odgovor"
+    },
+{
       "label": "Besedilo za gumb \"Prikaži rešitev\"",
       "default": "Prikaži rešitev"
     },

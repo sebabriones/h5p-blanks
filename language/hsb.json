@@ -323,33 +323,97 @@
       }
     },
     {
-      "label": "powšitkowny feedback",
+      "label": "Overall Feedback",
       "fields": [
+        {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
         {
           "widgets": [
             {
-              "label": "standard"
+              "label": "Default"
             }
           ],
-          "label": "postaj swójski feedback za kóždu wolenu ličbu dypkow",
-          "description": "Stłóč na tłóčatko \"Dodaj wobłuk\", zo by telko wobłukow dodał/a, kaž trjebaš. Přikład: 0-20% Špatny wuslědk, 21-91% Přerězny wuslědk, 91-100% Wuběrnje!",
-          "entity": "wobłuk",
+          "label": "Define custom feedback for any score range",
+          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity": "range",
           "field": {
             "fields": [
               {
-                "label": "wobłuk dypkow"
+                "label": "Score Range"
               },
               {},
               {
-                "label": "feedback za wěsty wobłuk dypkow",
-                "placeholder": "zapisaj feedback"
+                "label": "Feedback for defined score range",
+                "placeholder": "Fill in the feedback"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Text for overall feedback popup close button",
+      "default": "Close"
+    },
     {
+      "label": "Text for \"Show feedback\" button",
+      "default": "Show feedback"
+    },
+{
       "label": "tekst za tłóčatko \"pokaž mi rozrisanje\"",
       "default": "pokaž mi rozrisanje"
     },

@@ -320,30 +320,94 @@
       "label": "Загальний відгук",
       "fields": [
         {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
+        {
           "widgets": [
             {
-              "label": "По умовчанню"
+              "label": "За замовчуванням"
             }
           ],
-          "label": "Визначення користувацьких відгуків для будь якого діапазону оцінок",
-          "description": "Натисніть на кнопку \"Добавити діапазон\" щоб добавити стільки діапазонів, скільки вам потрібно. Наприклад: 0-20% Погана оцінка, 21-91% Середня оцінка, 91-100% Відмінна оцінка!",
+          "label": "Встановити відгук для будь-якого діапазону балів",
+          "description": "Натисніть кнопку \"Додати діапазон\" для додавання необхідної кількості діапазонів. Приклад: 0-20% Низький результат, 21-91% Середній результат, 91-100% Відмінний результат!",
           "entity": "діапазон",
           "field": {
             "fields": [
               {
-                "label": "Діапазон оцінок"
+                "label": "Діапазон балів"
               },
               {},
               {
-                "label": "Зворотній зв'язок для певного діапазону оцінок",
+                "label": "Відгук для певного діапазону балів",
                 "placeholder": "Заповніть відгук"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Text for overall feedback popup close button",
+      "default": "Close"
+    },
     {
+      "label": "Text for \"Show feedback\" button",
+      "default": "Show feedback"
+    },
+{
       "label": "Текст для кнопки \"Показати відповідь\"",
       "default": "Показати відповіді"
     },

@@ -320,30 +320,110 @@
       "label": "Обща обратна връзка",
       "fields": [
         {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
+        {
           "widgets": [
             {
               "label": "По подразбиране"
             }
           ],
-          "label": "Определете персонализирани отзиви за всеки диапазон от резултати",
-          "description": "Кликнете върху бутона \"Добавяне на диапазон\", за да добавите толкова диапазони, от колкото имате нужда. Пример: 0-20% Лош резултат, 21-91% Среден резултат, 91-100% Отлично! ",
+          "label": "Персонална обратна връзка за всеки диапазон от точки",
+          "description": "Натиснете бутон \"Добави диапазон\", за да добавите необходимите полета за диапазони. Пример: 0-20% Слаб резултат, 21-91% Среден резултат, 91-100% Отличен резултат!",
           "entity": "диапазон",
           "field": {
             "fields": [
               {
-                "label": "Обхват на резултата"
+                "label": "Диапазон на резултата"
               },
               {},
               {
-                "label": "Обратна връзка за определен диапазон от резултати",
-                "placeholder": "Попълнете обратна връзка"
+                "label": "Обратна връзка за дефиниран диапазон на резултата",
+                "placeholder": "Въведете обратна връзка"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Настройки за поведение",
+      "description": "Тези настройки позволяват да контролирате поведението на задачата.",
+      "fields": [
+        {
+          "label": "Разреши бутон \"Опитай пак\" "
+        },
+        {
+          "label": "Разреши бутон \"Покажи решение\" "
+        },
+        {
+          "label": "Разреши бутон \"Провери\" "
+        },
+        {
+          "label": "Показване на точките",
+          "description": "Показва получените точки за всеки отговор."
+        }
+      ]
+    },
     {
+      "label": "Текст за верен отговор",
+      "default": "Вярно!",
+      "description": "Текстът ще показва, че отговорът е верен"
+    },
+{
       "label": "Текст за бутона \"Показване на решението\"",
       "default": "Покажи верния отговор"
     },

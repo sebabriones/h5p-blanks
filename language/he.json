@@ -317,33 +317,97 @@
       }
     },
     {
-      "label": "משוב כללי",
+      "label": "משוב כולל",
       "fields": [
+        {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
         {
           "widgets": [
             {
-              "label": "בררת מחדל"
+              "label": "ברירת מחדל"
             }
           ],
-          "label": "הגדרת משוב מותאם אישית לכל טווח נקודות שהוא",
-          "description": "לחצו על כפתור \"הוספת טווח\" להוספת טווחים לפי הצורך. לדוגמה: 0-20% ניקוד גרוע, 21-91% ניקוד ממוצע, 91-100% ניקוד מצוין!",
-          "entity": "תחום",
+          "label": "הגדירו משוב מותאם אישית לכל טווח ציונים",
+          "description": "לחצו על כפתור \"הוסף טווח\" כדי להוסיף כמה טווחים לפי הצורך. דוגמה: 0-20% ציון רע, 21-91% ציון ממוצע, 91-100% ציון מעולה!",
+          "entity": "טווח",
           "field": {
             "fields": [
               {
-                "label": "תחום ציונים"
+                "label": "טווח ציונים"
               },
               {},
               {
-                "label": "משוב לטווח ניקוד מוגדר",
+                "label": "משוב לטווח ציונים מוגדר",
                 "placeholder": "מלאו את המשוב"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Text for overall feedback popup close button",
+      "default": "Close"
+    },
     {
+      "label": "Text for \"Show feedback\" button",
+      "default": "Show feedback"
+    },
+{
       "label": "טקסט עבור כפתור \"הצגת פתרונות\"",
       "default": "הצגת פתרונות"
     },

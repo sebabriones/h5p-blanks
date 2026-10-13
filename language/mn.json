@@ -320,7 +320,21 @@
       "label": "Ерөнхий санал хүсэлт",
       "fields": [
         {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
+        {
+          "widgets": [
+            {
+              "label": "Өгөгдмөл"
+            }
+          ],
           "label": "Аль ч онооны мужид захиалгат санал хүсэлтийг тодорхойлох",
+          "description": "\"Хүрээ нэмэх\" товчийг дарж шаардлагатай бол олон муж нэмнэ. Жишээ: 0-20% муу оноо, 21-91% дундаж оноо, 91-100% сайн оноо!",
           "entity": "хүрээ",
           "field": {
             "fields": [
@@ -331,19 +345,69 @@
               {
                 "label": "Тодорхойлогдсон онооны хүрээний санал хүсэлт",
                 "placeholder": "Санал хүсэлтийг бөглөнө үү"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
-          },
-          "widgets": [
-            {
-              "label": "Өгөгдмөл"
-            }
-          ],
-          "description": "\"Хүрээ нэмэх\" товчийг дарж шаардлагатай бол олон муж нэмнэ. Жишээ нь: 0-20% муу оноо, 21-91% дундаж оноо, 91-100% сайн оноо!"
+          }
         }
       ]
     },
+        {
+      "label": "Text for overall feedback popup close button",
+      "default": "Close"
+    },
     {
+      "label": "Text for \"Show feedback\" button",
+      "default": "Show feedback"
+    },
+{
       "label": "\"Шийдлийг харуулах\" товчлуурын текст",
       "default": "Шийдлийг харуулах"
     },

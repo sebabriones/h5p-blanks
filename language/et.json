@@ -320,13 +320,21 @@
       "label": "Üldine tagasiside",
       "fields": [
         {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
+        {
           "widgets": [
             {
               "label": "Vaikimisi"
             }
           ],
           "label": "Määratle kohandatud tagasiside igale punktisumma vahemikule",
-          "description": "Kliki \"Lisa vahemik\" nupule, et lisada vajalik arv vahemikke. Näiteks: 0-20% Halb tulemus, 21-91% Keskmine tulemus, 91-100% Suurepärane tulemus!",
+          "description": "Kliki \"Lisa vahemik\" nupule vajalike vahemike lisamiseks. Näiteks: 0-20% halb tulemus, 21-91% keskmine tulemus, 91-100% suurepärane tulemus!",
           "entity": "vahemik",
           "field": {
             "fields": [
@@ -337,13 +345,85 @@
               {
                 "label": "Tagasiside määratletud punktisumma vahemikule",
                 "placeholder": "Sisesta tagasiside"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Käitumisseaded.",
+      "description": "Nende valikutega saad määrata ülesande käitumise.",
+      "fields": [
+        {
+          "label": "Luba \"Proovi uuesti\" nupp"
+        },
+        {
+          "label": "Luba \"Näita lahendust\" nupp"
+        },
+        {
+          "label": "Luba \"Kontrolli\" nupp"
+        },
+        {
+          "label": "Näita punktisumma tulemus",
+          "description": "Iga vastusega teenitud punktid."
+        }
+      ]
+    },
     {
+      "label": "Õige vastuse tekst",
+      "default": "Õige!",
+      "description": "Õigele vastusele osutav tekst"
+    },
+{
       "label": "Nupu \"Näita lahendusi\" tekst",
       "default": "Näita lahendusi"
     },

@@ -317,33 +317,97 @@
       }
     },
     {
-      "label": "មូលវិចារណ៍ទូទៅ",
+      "label": "Overall Feedback",
       "fields": [
+        {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
         {
           "widgets": [
             {
-              "label": "លំនាំដើម"
+              "label": "Default"
             }
           ],
-          "label": "កំណត់មូលវិចារណ៍តាមបំណងសម្រាប់ចន្លោះពិន្ទុ",
-          "description": "ចុចប៊ូតុង \"បន្ថែមចន្លោះ\" ដើម្បីបន្ថែមចន្លោះពិន្ទុតាមដែលអ្នកចង់បាន។ ឧទា: 0-20% ពិន្ទុខ្សោយ, 21-91% ពិន្ទុមធ្យម, 91-100% ពិន្ទុល្អប្រសើរ!",
-          "entity": "ចន្លោះ",
+          "label": "Define custom feedback for any score range",
+          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity": "range",
           "field": {
             "fields": [
               {
-                "label": "ចន្លោះពិន្ទុ"
+                "label": "Score Range"
               },
               {},
               {
-                "label": "មូលវិចារណ៍សម្រាប់ចន្លោះពិន្ទុដែលបានកំណត់",
-                "placeholder": "បញ្ចូលមូលវិចារណ៍"
+                "label": "Feedback for defined score range",
+                "placeholder": "Fill in the feedback"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Text for overall feedback popup close button",
+      "default": "Close"
+    },
     {
+      "label": "Text for \"Show feedback\" button",
+      "default": "Show feedback"
+    },
+{
       "label": "Text for \"Show solutions\" button",
       "default": "បង្ហាញចម្លើយត្រឹមត្រូវ"
     },

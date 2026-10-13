@@ -317,33 +317,113 @@
       }
     },
     {
-      "label": "所有评价",
+      "label": "結果回饋",
       "fields": [
+        {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
         {
           "widgets": [
             {
-              "label": "默认"
+              "label": "預設"
             }
           ],
-          "label": "为任何成绩自定义评价",
-          "description": "点击 \"添加成绩档次\" 增加档次. 例如: 0-20% 差, 21-91% 中等, 91-100% 优!",
-          "entity": "档次",
+          "label": "為不同分數區間的用戶分別回饋訊息",
+          "description": "點擊「添加範圍」按鈕，加入你想要的範圍，例如 0%-59% 請加油、60%-79% 再努力、80%-100% 太棒了。",
+          "entity": "範圍",
           "field": {
             "fields": [
               {
-                "label": "成绩档次"
+                "label": "分數區間"
               },
               {},
               {
-                "label": "指定成绩档次的评价",
-                "placeholder": "填写评价"
+                "label": "自訂區間回饋訊息",
+                "placeholder": "填入回饋訊息"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "行為設置",
+      "description": "這些設定可以讓你控制任務的行為。",
+      "fields": [
+        {
+          "label": "啟用「再試一次」按鈕"
+        },
+        {
+          "label": "啟用「顯示正解」按鈕"
+        },
+        {
+          "label": "啟用「核對答案」按鈕"
+        },
+        {
+          "label": "顯示計分狀態",
+          "description": "在每個項目旁顯示加分或減分情形。"
+        }
+      ]
+    },
     {
+      "label": "答對的顯示文字",
+      "default": "答對！",
+      "description": "用於表示答案正確的文字。"
+    },
+{
       "label": " \"显示答案\" 按钮文字",
       "default": "显示答案"
     },

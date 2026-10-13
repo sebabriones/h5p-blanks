@@ -319,30 +319,94 @@
       "label": "Retroalimentación Global",
       "fields": [
         {
+          "label": "Color de fondo de zona de retroalimentación",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Color de texto de la zona de retroalimentación",
+          "default": "#333333"
+        },
+        {
           "widgets": [
             {
-              "label": "Predeterminado"
+              "label": "Por defecto"
             }
           ],
-          "label": "Definir retroalimentación personalizada para cualquier rango de puntaje",
-          "description": "Haga clic en el botón \"Añadir rango\" para añadir cuantos rangos necesite. Ejemplo: 0-20% Mal puntaje, 21-91% Puntaje Promedio, 91-100% ¡Magnífico Puntaje!",
+          "label": "Definir retroalimentación personalizada para cualquier rango de puntuación",
+          "description": "Haz clic en el botón \"Añadir rango\" para añadir los rangos que necesites. Ejemplo: 0-20% Mala puntuación, 21-91% Puntuación Media, 91-100% ¡Puntuación Estupenda!",
           "entity": "rango",
           "field": {
             "fields": [
               {
-                "label": "Rango del Puntaje"
+                "label": "Rango de puntuación"
               },
               {},
               {
-                "label": "Retroalimentación para rango de puntaje definido",
-                "placeholder": "Complete la retroalimentación"
+                "label": "Retroalimentación para el rango de puntuación definido",
+                "placeholder": "Escribe tu retroalimentación"
+              },
+              {
+                "label": "Configuración de apariencia",
+                "fields": [
+                  {
+                    "label": "Texto destacado inicial",
+                    "placeholder": "p. ej. ¡Correcto! o Incorrecto"
+                  },
+                  {
+                    "label": "Texto destacado en negrita"
+                  },
+                  {
+                    "label": "Color del texto destacado",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Alineación del texto",
+                    "description": "Solo se usa cuando no hay imagen de retroalimentación. Con imagen, la alineación depende de su posición (izquierda/derecha: alineado a la izquierda; encima: centrado).",
+                    "options": [
+                      {
+                        "label": "Izquierda"
+                      },
+                      {
+                        "label": "Centro"
+                      },
+                      {
+                        "label": "Derecha"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Imagen de retroalimentación"
+                  },
+                  {
+                    "label": "Posición de la imagen",
+                    "options": [
+                      {
+                        "label": "Encima del texto"
+                      },
+                      {
+                        "label": "A la izquierda del texto"
+                      },
+                      {
+                        "label": "A la derecha del texto"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Texto del botón cerrar del popup de retroalimentación",
+      "default": "Cerrar"
+    },
     {
+      "label": "Texto del botón \"Mostrar retroalimentación\"",
+      "default": "Mostrar retroalimentación"
+    },
+{
       "label": "Texto para el botón de \"Mostrar soluciones\"",
       "default": "Mostrar solución"
     },

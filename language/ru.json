@@ -320,30 +320,94 @@
       "label": "Общий отзыв",
       "fields": [
         {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
+        {
           "widgets": [
             {
               "label": "По умолчанию"
             }
           ],
-          "label": "Определите собственную обратную связь для любого диапазона оценок",
-          "description": "Нажмите \"Добавить диапазон\" чтобы добавить столько диапазонов, сколько вам нужно. Например: 0-20% Плохая оценка, 21-91% Средняя оценка, 91-100% Отличная оценка!",
+          "label": "Установить отзыв для любого диапазона баллов",
+          "description": "Нажмите кнопку \"Добавить диапазон\" для добавления необходимого количества диапазонов. Пример: 0-20% Низкий результат, 21-91% Средний результат, 91-100% Отличный результат!",
           "entity": "диапазон",
           "field": {
             "fields": [
               {
-                "label": "Диапазон оценок"
+                "label": "Диапазон баллов"
               },
               {},
               {
-                "label": "Обратная связь для указанного диапазона оценок",
+                "label": "Отзыв для определённого диапазона баллов",
                 "placeholder": "Заполните отзыв"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Text for overall feedback popup close button",
+      "default": "Close"
+    },
     {
+      "label": "Text for \"Show feedback\" button",
+      "default": "Show feedback"
+    },
+{
       "label": "Текст для кнопки \"Показать ответы\"",
       "default": "Показать ответы"
     },

@@ -317,33 +317,113 @@
       }
     },
     {
-      "label": "Toplam Geri bildirim",
+      "label": "Overall Feedback",
       "fields": [
+        {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
         {
           "widgets": [
             {
               "label": "Varsayılan"
             }
           ],
-          "label": "Herhangi bir puan aralığı için özel geri bildirim tanımlayın",
-          "description": "İstediğiniz kadar aralık eklemek için \"Aralık ekle\" düğmesini tıklayın. Örnek: %0-20 Kötü puan, %21-91 Ortalama Puan, %91-100 Büyük Puan!",
-          "entity": "Aralık",
+          "label": "Define custom feedback for any score range",
+          "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+          "entity": "range",
           "field": {
             "fields": [
               {
-                "label": "Puan Aralığı"
+                "label": "Score Range"
               },
               {},
               {
-                "label": "Tanımlanmış puan aralığı için geri bildirim",
-                "placeholder": "Geri bildirimi doldurun"
+                "label": "Feedback for defined score range",
+                "placeholder": "Fill in the feedback"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Behavioural settings.",
+      "description": "Bu seçenekler aktivitenin çalışma şeklini denetlemenize izin verir.",
+      "fields": [
+        {
+          "label": "Enable \"Retry\""
+        },
+        {
+          "label": "Enable \"Show solution\" button"
+        },
+        {
+          "label": "Enable \"Check\" button"
+        },
+        {
+          "label": "Show score points",
+          "description": "Show points earned for each answer."
+        }
+      ]
+    },
     {
+      "label": "Correct answer text",
+      "default": "Correct!",
+      "description": "Text used to indicate that an answer is correct"
+    },
+{
       "label": "\"Çözümü göster\" düğmesi için metin",
       "default": "Çözümü göster"
     },

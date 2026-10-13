@@ -320,13 +320,21 @@
       "label": "전반적인 피드백",
       "fields": [
         {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
+        {
           "widgets": [
             {
               "label": "기본값"
             }
           ],
-          "label": "점수 범위에 대한 사용자 피드백 정의",
-          "description": "\"Add range\" 버튼을 클릭하여 필요한 만큼 범위를 추가하십시오. 예: 0-20% 낮은 점수, 21-91% 평균 점수, 91-100% 높은 점수!",
+          "label": "점수 범위에 따른 줄 피드백 설정",
+          "description": "\"Add range\" 버튼을 클릭하여 필요한 만큼 범위를 추가하십시오. 예: 0-20% 노력이 필요한 점수, 21-91% 평균적인 점수, 91-100% 훌륭한 점수!",
           "entity": "범위",
           "field": {
             "fields": [
@@ -335,15 +343,71 @@
               },
               {},
               {
-                "label": "정의된 점수 범위에 대한 피드백",
+                "label": "정의한 점수 범위에 대한 피드백",
                 "placeholder": "피드백 작성"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Text for overall feedback popup close button",
+      "default": "Close"
+    },
     {
+      "label": "Text for \"Show feedback\" button",
+      "default": "Show feedback"
+    },
+{
       "label": "\"Show solutions\" (해답 보기) 버튼",
       "default": "해답 보기"
     },

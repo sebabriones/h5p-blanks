@@ -320,30 +320,110 @@
       "label": "Tilbakemelding på heile oppgåva",
       "fields": [
         {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
+        {
           "widgets": [
             {
-              "label": "Forhandsinnstilling"
+              "label": "Førehandsinnstilling"
             }
           ],
-          "label": "Opprett poengintervall og legg inn tilbakemeldingar.",
-          "description": "Klikk på knappen \"Legg til poengintervall\" og legg til så mange poengintervall du treng. Døme: 0–40 % Svakt resultat, 41–80 % Gjennomsnittleg resultat, 81–100 % Flott resultat!",
-          "entity": "Intervall",
+          "label": "Opprett poengområde og legg inn tilbakemeldingar.",
+          "description": "Klikk på knappen \"Legg til poengområde\" og legg til så mange poengområde du treng. Døme: 0–40 % Svakt resultat, 41–80 % Gjennomsnittleg resultat, 81–100 % Flott resultat!",
+          "entity": "Område",
           "field": {
             "fields": [
               {
-                "label": "Poengintervall"
+                "label": "Poengområde"
               },
               {},
               {
-                "label": "Tilbakemelding for definert poengintervall",
+                "label": "Tilbakemelding for definert poengområde",
                 "placeholder": "Skriv inn tilbakemelding."
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Innstillinger for oppgave-åtferd",
+      "description": "Disse instillingene lar deg bestemme hvordan oppgavetypen skal oppføre seg.",
+      "fields": [
+        {
+          "label": "Aktiver \"Prøv igjen\"-knapp"
+        },
+        {
+          "label": "Aktiver \"Fasit\" knapp"
+        },
+        {
+          "label": "Enable \"Check\" button"
+        },
+        {
+          "label": "Show score points",
+          "description": "Show points earned for each answer."
+        }
+      ]
+    },
     {
+      "label": "Riktig svar tekst",
+      "default": "Riktig!",
+      "description": "Text used to indicate that an answer is correct"
+    },
+{
       "label": "Namn på \"Vis svar\"-knapp",
       "default": "Vis svar"
     },

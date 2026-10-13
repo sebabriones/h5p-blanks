@@ -319,6 +319,14 @@
       "label": "Retroalimentación Global",
       "fields": [
         {
+          "label": "Color de fondo de zona de retroalimentación",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Color de texto de la zona de retroalimentación",
+          "default": "#333333"
+        },
+        {
           "widgets": [
             {
               "label": "Por defecto"
@@ -334,15 +342,71 @@
               },
               {},
               {
-                "label": "Realimentación para el rango de puntuación definido",
+                "label": "Retroalimentación para el rango de puntuación definido",
                 "placeholder": "Escribe tu retroalimentación"
+              },
+              {
+                "label": "Configuración de apariencia",
+                "fields": [
+                  {
+                    "label": "Texto destacado inicial",
+                    "placeholder": "p. ej. ¡Correcto! o Incorrecto"
+                  },
+                  {
+                    "label": "Texto destacado en negrita"
+                  },
+                  {
+                    "label": "Color del texto destacado",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Alineación del texto",
+                    "description": "Solo se usa cuando no hay imagen de retroalimentación. Con imagen, la alineación depende de su posición (izquierda/derecha: alineado a la izquierda; encima: centrado).",
+                    "options": [
+                      {
+                        "label": "Izquierda"
+                      },
+                      {
+                        "label": "Centro"
+                      },
+                      {
+                        "label": "Derecha"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Imagen de retroalimentación"
+                  },
+                  {
+                    "label": "Posición de la imagen",
+                    "options": [
+                      {
+                        "label": "Encima del texto"
+                      },
+                      {
+                        "label": "A la izquierda del texto"
+                      },
+                      {
+                        "label": "A la derecha del texto"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Texto del botón cerrar del popup de retroalimentación",
+      "default": "Cerrar"
+    },
     {
+      "label": "Texto del botón \"Mostrar retroalimentación\"",
+      "default": "Mostrar retroalimentación"
+    },
+{
       "label": "Texto para el botón de \"Mostrar soluciones\"",
       "default": "Mostrar solución"
     },

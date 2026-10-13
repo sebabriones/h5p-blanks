@@ -320,13 +320,21 @@
       "label": "საერთო გამოხმაურება",
       "fields": [
         {
+          "label": "Popup background color",
+          "default": "#ffffff"
+        },
+        {
+          "label": "Feedback text color",
+          "default": "#333333"
+        },
+        {
           "widgets": [
             {
               "label": "სტანდარტული"
             }
           ],
-          "label": "ქულების ნებისმიერი დიაპაზონისთვის ინდივიდუალური შეტყობინების დაყენება",
-          "description": "დააჭირეთ \"დიაპაზონის დამატება\" ღილაკს რომ დაამატოთ იმდენი დიაპაზონი, რამდენიც გსურთ. მაგალითად: 0-20% ცუდი შედეგი, 21-91% საშუალო შედეგი, 91-100% კარგი შედეგი!",
+          "label": "განსაზღვრე უკუკავშირი ქულების ნებისმიერი დიაპაზონისთვის",
+          "description": "დააჭირე \"დიაპაზონის დამატების\" ღილაკს რომ დაემატოს იმდენი დიაპაზონი, რამდენიც გჭირდებათ. მაგალითად: 0-20% ცუდი ქულა, 21-91% საშუალო ქულა, 91-100% საუკეთესო ქულა!",
           "entity": "დიაპაზონი",
           "field": {
             "fields": [
@@ -335,15 +343,71 @@
               },
               {},
               {
-                "label": "უკუკავშირი განსაზღვრული შეფასების დიაპაზონისთვის",
-                "placeholder": "შეავსეთ უკუკავშირი"
+                "label": "უკუკავშირი ქულების განსაზღვრული დიაპაზონისთვის",
+                "placeholder": "უკუკავშირის შევსება"
+              },
+              {
+                "label": "Appearance settings",
+                "fields": [
+                  {
+                    "label": "Highlighted lead text",
+                    "placeholder": "e.g. Correct! or Incorrect"
+                  },
+                  {
+                    "label": "Bold lead text"
+                  },
+                  {
+                    "label": "Highlighted lead text color",
+                    "default": "#1a73d9"
+                  },
+                  {
+                    "label": "Text alignment",
+                    "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
+                    "options": [
+                      {
+                        "label": "Left"
+                      },
+                      {
+                        "label": "Center"
+                      },
+                      {
+                        "label": "Right"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Feedback image"
+                  },
+                  {
+                    "label": "Image position",
+                    "options": [
+                      {
+                        "label": "Above text"
+                      },
+                      {
+                        "label": "Left of text"
+                      },
+                      {
+                        "label": "Right of text"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
         }
       ]
     },
+        {
+      "label": "Text for overall feedback popup close button",
+      "default": "Close"
+    },
     {
+      "label": "Text for \"Show feedback\" button",
+      "default": "Show feedback"
+    },
+{
       "label": "ტექსტი \"ამოხსნის ჩვენება\" ღილაკისთვის",
       "default": "ამოხსნის ჩვენება"
     },

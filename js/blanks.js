@@ -250,6 +250,35 @@ H5P.BlanksCFRD = (function ($, Question) {
   }
 
   /**
+   * Convierte la retroalimentación en lista al objeto del fork.
+   *
+   * @param {object} params
+   */
+  function migrateOverallFeedback(params) {
+    if (!params) {
+      return;
+    }
+
+    if (Array.isArray(params.overallFeedback)) {
+      params.overallFeedback = {
+        popupBackgroundColor: '#ffffff',
+        feedbackTextColor: '#333333',
+        overallFeedback: params.overallFeedback
+      };
+      return;
+    }
+
+    if (params.overallFeedback && typeof params.overallFeedback === 'object') {
+      if (!params.overallFeedback.popupBackgroundColor) {
+        params.overallFeedback.popupBackgroundColor = '#ffffff';
+      }
+      if (!params.overallFeedback.feedbackTextColor) {
+        params.overallFeedback.feedbackTextColor = '#333333';
+      }
+    }
+  }
+
+  /**
    * Mantiene la oración dentro del área 16:9 y la evaluación fuera.
    *
    * @param {H5P.jQuery} $container
@@ -496,6 +525,8 @@ H5P.BlanksCFRD = (function ($, Question) {
       inputHasTipLabel: "Tip available",
       tipLabel: "Tip",
       scoreBarLabel: 'You got :num out of :total points',
+      feedbackPopupCloseLabel: 'Close',
+      showFeedbackButtonLabel: 'Show feedback',
       behaviour: {
         enableRetry: true,
         enableSolutionsButton: true,
@@ -514,6 +545,7 @@ H5P.BlanksCFRD = (function ($, Question) {
     }, params);
 
     migrateMediaToContext(self.params);
+    migrateOverallFeedback(self.params);
 
     // Delete empty questions
     for (var i = this.params.questions.length - 1; i >= 0; i--) {
@@ -741,6 +773,14 @@ H5P.BlanksCFRD = (function ($, Question) {
         }
       });
     }
+
+    self.addButton('show-feedback', self.params.showFeedbackButtonLabel, function () {
+      self.showEvaluation();
+    }, false, {}, {
+      icon: 'show-results',
+      styleType: 'secondary'
+    });
+
     self.toggleButtonVisibility(STATE_ONGOING);
   };
 
@@ -974,6 +1014,8 @@ H5P.BlanksCFRD = (function ($, Question) {
    * Using CSS-rules to conditionally show/hide using the data-attribute [data-state]
    */
   Blanks.prototype.toggleButtonVisibility = function (state) {
+    this.hideButton('show-feedback');
+
     // The show solutions button is hidden if all answers are correct
     var allCorrect = (this.getScore() === this.getMaxScore());
     if (this.params.behaviour.autoCheck && allCorrect) {
@@ -1315,9 +1357,39 @@ H5P.BlanksCFRD = (function ($, Question) {
   Blanks.prototype.showEvaluation = function () {
     var maxScore = this.getMaxScore();
     var score = this.getScore();
-    var scoreText = H5P.QuestionCFRD.determineOverallFeedback(this.params.overallFeedback, score / maxScore).replace('@score', score).replace('@total', maxScore);
+    var ratio = maxScore > 0 ? score / maxScore : 0;
+    var resolved = H5P.QuestionCFRD.resolveOverallFeedback(
+      this.params.overallFeedback,
+      ratio,
+      this.contentId,
+      score,
+      maxScore
+    );
+    var popupSettings;
 
-    this.setFeedback(scoreText, score, maxScore, this.params.scoreBarLabel);
+    if (resolved && resolved.html && resolved.html.trim().length > 0) {
+      popupSettings = {
+        showAsPopup: true,
+        closeText: this.params.feedbackPopupCloseLabel || 'Close',
+        alwaysShowClose: true,
+        dismissible: true,
+        popupBackgroundColor: resolved.popupBackgroundColor,
+        plainText: resolved.plainText,
+        onClose: function () {
+          this.showButton('show-feedback');
+        }.bind(this)
+      };
+      this.hideButton('show-feedback');
+    }
+
+    this.setFeedback(
+      resolved ? resolved.html : '',
+      score,
+      maxScore,
+      this.params.scoreBarLabel,
+      false,
+      popupSettings
+    );
 
     if (score === maxScore) {
       this.toggleButtonVisibility(STATE_FINISHED);
