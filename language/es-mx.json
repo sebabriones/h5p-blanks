@@ -304,11 +304,6 @@
       ]
     },
     {
-      "label": "Descripción del trabajo",
-      "default": "Rellenar con las palabras que faltan",
-      "description": "Una guía que le dice al usuario como contestar este trabajo."
-    },
-    {
       "label": "Bloques de texto",
       "entity": "bloque de texto",
       "field": {

@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Descrizione attività",
-      "default": "Riempi con le parole mancanti",
-      "description": "Una guida che dice all'utente come rispondere a questo compito."
-    },
-    {
       "label": "Blocchi di testo",
       "entity": "Blocco di testo",
       "field": {

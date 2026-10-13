@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Beskrivning av uppgift",
-      "default": "Fyll i saknade ord",
-      "description": "En guide som beskriver för användaren hur uppgiften ska lösas."
-    },
-    {
       "label": "Textblock",
       "entity": "textblock",
       "field": {

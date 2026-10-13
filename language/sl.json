@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Navodilo udeležencem",
-      "default": "Vnesi manjkajoče besede",
-      "description": "Opis reševanja zadane naloge."
-    },
-    {
       "label": "Odstavek z besedilom",
       "entity": "odstavek",
       "field": {

@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Tehtävän kuvaus",
-      "default": "Täytä puuttuvat sanat",
-      "description": "Ohje käyttäjälle kuinka tehtävä suoritetaan."
-    },
-    {
       "label": "Tekstikentät",
       "entity": "tekstikenttä",
       "field": {

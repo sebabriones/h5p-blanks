@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Taak beskrywing",
-      "default": "Vul die ontbrekende woorde in",
-      "description": "'n gids wat die gebruiker vertel hoe om hierdie taak te beantwoord."
-    },
-    {
       "label": "Teksblokke",
       "entity": "Teksblok",
       "field": {

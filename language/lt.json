@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Užduoties aprašymas",
-      "default": "Įrašykite praleistus žodžius",
-      "description": "Vadovas, nurodantis naudotojui, kaip atsakyti į šią užduotį."
-    },
-    {
       "label": "Teksto blokai",
       "entity": "teksto blokas",
       "field": {

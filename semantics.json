@@ -760,29 +760,6 @@
     ]
   },
   {
-    "label": "Task description",
-    "importance": "high",
-    "name": "text",
-    "type": "text",
-    "widget": "html",
-    "default": "Fill in the missing words",
-    "description": "A guide telling the user how to answer this task.",
-    "enterMode": "p",
-    "tags": [
-      "strong",
-      "em",
-      "u",
-      "a",
-      "ul",
-      "ol",
-      "h2",
-      "h3",
-      "hr",
-      "pre",
-      "code"
-    ]
-  },
-  {
     "name": "questions",
     "type": "list",
     "label": "Text blocks",

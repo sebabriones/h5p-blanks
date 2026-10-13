@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Descrição da tarefa",
-      "default": "Preencha as palavras que faltam",
-      "description": "Um guia que ensina ao usuário como completar a tarefa."
-    },
-    {
       "label": "Blocos de texto",
       "entity": "bloco de texto",
       "field": {

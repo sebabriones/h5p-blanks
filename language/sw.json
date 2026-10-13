@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Maelezo ya kazi",
-      "default": "Jaza maneno yanayokosekana",
-      "description": "Mwongozo unaomwambia mtumiaji jinsi ya kujibu kazi hii."
-    },
-    {
       "label": "Vizuizi vya maandishi",
       "entity": "kizuizi cha maandishi",
       "field": {

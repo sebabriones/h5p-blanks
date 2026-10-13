@@ -1,4 +1,5 @@
 /*global H5P*/
+(function (PlayArea) {
 H5P.BlanksCFRD = (function ($, Question) {
   /**
    * @constant
@@ -249,6 +250,130 @@ H5P.BlanksCFRD = (function ($, Question) {
   }
 
   /**
+   * Mantiene la oración dentro del área 16:9 y la evaluación fuera.
+   *
+   * @param {H5P.jQuery} $container
+   * @returns {H5P.jQuery}
+   */
+  function setupPlayAreaLayout($container) {
+    var $playArea = $container.children('.h5p-blanks-play-area').first();
+
+    if (!$playArea.length) {
+      $playArea = $('<div>', { 'class': 'h5p-blanks-play-area' });
+      $container.prepend($playArea);
+    }
+
+    $container.children('.h5p-question-content').appendTo($playArea);
+
+    return $playArea;
+  }
+
+  /**
+   * @param {H5P.jQuery} $container
+   */
+  function normalizeInlineEvaluationLayout($container) {
+    var $playArea = $container.children('.h5p-blanks-play-area').first();
+    var $feedback;
+    var $scorebar;
+    var $buttons;
+
+    if (!$playArea.length) {
+      return;
+    }
+
+    $playArea.children('.h5p-question-feedback:not(.h5p-question-popup)').appendTo($container);
+    $playArea.children('.h5p-question-scorebar').appendTo($container);
+
+    $feedback = $container.children('.h5p-question-feedback:not(.h5p-question-popup)');
+    $scorebar = $container.children('.h5p-question-scorebar');
+    $buttons = $container.children('.h5p-question-buttons');
+
+    if ($scorebar.length && $buttons.length) {
+      $scorebar.insertBefore($buttons);
+    }
+
+    if ($feedback.length && $scorebar.length) {
+      $feedback.insertBefore($scorebar);
+    }
+    else if ($feedback.length && $buttons.length) {
+      $feedback.insertBefore($buttons);
+    }
+  }
+
+  /**
+   * @param {H5P.jQuery} $container
+   */
+  function scheduleInlineEvaluationLayout($container) {
+    [0, 50, 160, 350].forEach(function (delay) {
+      setTimeout(function () {
+        if ($container && $container.length) {
+          normalizeInlineEvaluationLayout($container);
+        }
+      }, delay);
+    });
+  }
+
+  /**
+   * @param {H5P.BlanksCFRD} instance
+   */
+  function scheduleDeferredResize(instance) {
+    var delays;
+    var remaining;
+
+    if (!instance || instance._blanksDeferredResizePending) {
+      return;
+    }
+
+    instance._blanksDeferredResizePending = true;
+    delays = [50, 150, 350];
+    remaining = 2 + delays.length;
+
+    var done = function () {
+      remaining -= 1;
+      if (remaining <= 0) {
+        instance._blanksDeferredResizePending = false;
+      }
+    };
+
+    var fire = function () {
+      if (typeof instance.trigger === 'function') {
+        instance.trigger('resize');
+      }
+      done();
+    };
+
+    requestAnimationFrame(function () {
+      fire();
+      requestAnimationFrame(fire);
+    });
+
+    delays.forEach(function (delay) {
+      setTimeout(fire, delay);
+    });
+  }
+
+  /**
+   * Un reintento si el área aún no es visible, por ejemplo en una diapositiva oculta.
+   *
+   * @param {H5P.BlanksCFRD} instance
+   */
+  function scheduleHiddenResizeRetry(instance) {
+    if (!instance || instance._blanksHiddenResizeScheduled) {
+      return;
+    }
+
+    instance._blanksHiddenResizeScheduled = true;
+    setTimeout(function () {
+      instance._blanksHiddenResizeScheduled = false;
+      if (instance.$playArea && instance.$playArea.length &&
+          instance.$playArea.is(':visible') &&
+          typeof instance.trigger === 'function') {
+        instance.trigger('resize');
+      }
+    }, 200);
+  }
+
+  /**
    * @param {H5P.BlanksCFRD} instance
    */
   function registerQuestionContent(instance) {
@@ -352,7 +477,6 @@ H5P.BlanksCFRD = (function ($, Question) {
     this.contentData = contentData;
 
     this.params = $.extend(true, {}, {
-      text: "Fill in",
       questions: [
         "<p>Oslo is the capital of *Norway*.</p>"
       ],
@@ -420,13 +544,7 @@ H5P.BlanksCFRD = (function ($, Question) {
       }
     });
 
-    // Using instructions as label for our text groups
-    this.labelId = 'h5p-blanks-instructions-' + Blanks.idCounter + '-' + H5P.createUUID();
     this.content = self.createQuestions();
-
-    // Register task introduction text
-    self.setIntroduction('<div id="' + this.labelId + '">' + self.params.text + '</div>');
-
     registerQuestionContent(self);
 
     // ... and buttons
@@ -435,21 +553,117 @@ H5P.BlanksCFRD = (function ($, Question) {
     // Restore previous state
     self.setH5PUserState();
 
+    self.playAreaSize = PlayArea ? PlayArea.getDesignSize() : null;
+
+    var originalSetFeedback = self.setFeedback;
+    if (typeof originalSetFeedback === 'function') {
+      self.setFeedback = function () {
+        var result = originalSetFeedback.apply(self, arguments);
+
+        if (self.$container && self.$container.length) {
+          scheduleInlineEvaluationLayout(self.$container);
+        }
+
+        return result;
+      };
+    }
+
     var originalAttach = self.attach;
     self.attach = function ($container) {
       self.$container = $container;
-      self.$instructionsTarget = $container;
       originalAttach.call(self, $container);
+      self.$playArea = setupPlayAreaLayout($container);
+      self.$instructionsTarget = self.$playArea;
       scheduleContextImageAttach(self);
-      scheduleInstructionsAttach(self, $container);
+      scheduleInstructionsAttach(self, self.$playArea);
+      scheduleInlineEvaluationLayout($container);
+
+      if (window.ResizeObserver && !self.playAreaResizeObserver && self.$playArea.length) {
+        self.playAreaResizeObserver = new ResizeObserver(function () {
+          if (self._blanksIgnoreResizeObserver) {
+            return;
+          }
+          if (!self.$playArea || !self.$playArea.length || !self.$playArea.is(':visible')) {
+            return;
+          }
+          self.trigger('resize');
+        });
+        self.playAreaResizeObserver.observe(self.$playArea[0]);
+      }
+
+      scheduleDeferredResize(self);
     };
 
     self.on('resize', function () {
-      if (isEmbeddedInstance(self)) {
+      var design = self.playAreaSize;
+      var rootEl;
+      var layout;
+      var scaleKey;
+      var scaleChanged;
+
+      if (!self.$playArea || !self.$playArea.length || !PlayArea || !design) {
         return;
       }
-      refreshInstructionsScale(self);
+
+      if (!self.$playArea.is(':visible')) {
+        scheduleHiddenResizeRetry(self);
+        return;
+      }
+
+      rootEl = (self.$container && self.$container.length) ?
+        self.$container[0] :
+        self.$playArea[0];
+      layout = PlayArea.getLayoutDimensions(rootEl);
+      scaleKey = layout.scale.toFixed(4);
+      scaleChanged = self._blanksLastScaleKey !== scaleKey;
+
+      self._blanksIgnoreResizeObserver = true;
+
+      if (self.$container && self.$container.length) {
+        self.$container.css({
+          width: layout.widthPx,
+          maxWidth: '100%',
+          height: layout.heightPx
+        });
+      }
+
+      self.$playArea.css({
+        width: '100%',
+        height: '',
+        fontSize: layout.fontSize + 'px',
+        '--blanks-scale': scaleKey
+      });
+
+      if (scaleChanged) {
+        self._blanksLastScaleKey = scaleKey;
+        if (!isEmbeddedInstance(self)) {
+          refreshInstructionsScale(self);
+        }
+      }
+
+      requestAnimationFrame(function () {
+        self._blanksIgnoreResizeObserver = false;
+      });
     });
+
+    if (typeof self.remove === 'function') {
+      var originalRemove = self.remove;
+      self.remove = function () {
+        if (self.playAreaResizeObserver) {
+          self.playAreaResizeObserver.disconnect();
+          self.playAreaResizeObserver = null;
+        }
+        return originalRemove.apply(self, arguments);
+      };
+    }
+    else {
+      self.remove = function () {
+        if (self.playAreaResizeObserver) {
+          self.playAreaResizeObserver.disconnect();
+          self.playAreaResizeObserver = null;
+        }
+      };
+    }
   }
 
   // Inheritance
@@ -597,7 +811,7 @@ H5P.BlanksCFRD = (function ($, Question) {
         return cloze;
       });
 
-      html += '<div role="group" aria-labelledby="' + self.labelId + '">' + question + '</div>';
+      html += '<div role="group">' + question + '</div>';
     }
 
     self.hasClozes = clozeNumber > 0;
@@ -950,6 +1164,29 @@ H5P.BlanksCFRD = (function ($, Question) {
   };
 
   /**
+   * Lead text for the xAPI activity description.
+   * Instructions replace the removed task description. Saved text is only a fallback.
+   *
+   * @returns {string}
+   */
+  Blanks.prototype.getXapiDescriptionLead = function () {
+    var instructions = this.params.instructions;
+    var instructionsText = instructions && instructions.text ?
+      stripHtmlText(instructions.text) :
+      '';
+
+    if (instructionsText) {
+      return instructionsText;
+    }
+
+    if (this.params.text) {
+      return String(this.params.text).replace(/_{10,}/gi, '_________');
+    }
+
+    return '';
+  };
+
+  /**
    * Generate xAPI object definition used in xAPI statements.
    * @return {Object}
    */
@@ -957,7 +1194,7 @@ H5P.BlanksCFRD = (function ($, Question) {
     var definition = {};
     // The below replaceAll makes sure we don't get any unwanted XAPI_PLACEHOLDERs in the description
     definition.description = {
-      'en-US': this.params.text.replaceAll(/_{10,}/gi, '_________')
+      'en-US': this.getXapiDescriptionLead()
     };
     definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
     definition.interactionType = 'fill-in';
@@ -1230,10 +1467,13 @@ H5P.BlanksCFRD = (function ($, Question) {
     this.$questions.find('input').attr('disabled', true);
   };
 
-  Blanks.idCounter = 0;
-
   return Blanks;
 })(H5P.jQuery, H5P.QuestionCFRD);
+
+if (PlayArea) {
+  H5P.BlanksCFRD.PlayArea = PlayArea;
+}
+})(H5P.BlanksCFRD && H5P.BlanksCFRD.PlayArea);
 
 /**
  * Static utility method for parsing H5P.BlanksCFRD qestion into a format useful

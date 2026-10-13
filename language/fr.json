@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Description de la tâche",
-      "default": "Complétez les mots manquants",
-      "description": "Un guide expliquant à l'utilisateur comment répondre à cette tâche."
-    },
-    {
       "label": "Blocs de texte",
       "entity": "bloc de texte",
       "field": {

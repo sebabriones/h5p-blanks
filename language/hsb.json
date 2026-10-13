@@ -311,11 +311,6 @@
       ]
     },
     {
-      "label": "wopisowanje nadawka",
-      "default": "zapisaj falowace słowa",
-      "description": "Wujasnjenje, kak ma so nadawk rozrisać."
-    },
-    {
       "label": "tekst",
       "entity": "tekst",
       "field": {

@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Beskrive af opgaven",
-      "default": "Indsæt de manglende ord",
-      "description": "En guide der fortæller brugeren hvordan han svarer på opgaven."
-    },
-    {
       "label": "Tekst blokke",
       "entity": "tekst blokke",
       "field": {

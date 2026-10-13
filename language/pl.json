@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Wstęp",
-      "default": "Uzupełnij brakujące wyrażenia",
-      "description": "Objaśnienie dla użytkownika, co należy zrobić w zadaniu."
-    },
-    {
       "label": "Fragmenty zadania",
       "entity": "fragment",
       "field": {

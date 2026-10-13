@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Descripció de la tasca",
-      "default": "Introduïu les paraules que falten",
-      "description": "Una guia per explicar a l’usuari com funciona la tasca."
-    },
-    {
       "label": "Blocs de text",
       "entity": "bloc de text",
       "field": {

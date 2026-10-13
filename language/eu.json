@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Atazaren deskribapena",
-      "default": "Bete falta diren hitzak",
-      "description": "Gida honek azaltzen dio erabiltzaileari nol egin jarduera hau."
-    },
-    {
       "label": "Testu blokeak",
       "entity": "testu blokea",
       "field": {

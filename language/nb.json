@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Oppgavebeskrivelse",
-      "default": "Fyll inn orda som mangler.",
-      "description": "En tekst som forteller brukeren hvordan oppgaven skal løses"
-    },
-    {
       "label": "Tekstlinjer",
       "entity": "Tekstlinje",
       "field": {

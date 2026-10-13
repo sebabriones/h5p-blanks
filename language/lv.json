@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Uzdevuma apraksts",
-      "default": "Aizpildiet trūkstošos vārdus",
-      "description": "Pamācība lietotājam kā pildīt šo uzdevumu."
-    },
-    {
       "label": "Teksta bloki",
       "entity": "teksta bloks",
       "field": {

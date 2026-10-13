@@ -304,11 +304,6 @@
       ]
     },
     {
-      "label": "Descripción de la tarea",
-      "default": "Rellenar con las palabras que faltan",
-      "description": "Una guía que le dice al usuario como hacer esta tarea."
-    },
-    {
       "label": "Bloques de texto",
       "entity": "bloque de texto",
       "field": {

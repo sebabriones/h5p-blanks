@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Popis úlohy",
-      "default": "Doplňte chybějící slova",
-      "description": "Průvodce, který uživateli řekne, jak na tuto úlohu odpovědět."
-    },
-    {
       "label": "Textové bloky",
       "entity": "textové bloky",
       "field": {

@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Ülesande kirjeldus",
-      "default": "Sisesta puuduvad sõnad",
-      "description": "Ülesande vastamist kirjeldav juhis kasutajale."
-    },
-    {
       "label": "Tekstiväljad",
       "entity": "tekstiväli",
       "field": {

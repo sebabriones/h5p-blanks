@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Görev tanımlaması",
-      "default": "Boşlukları uygun kelimeler ile doldurunuz.",
-      "description": "Bu görevin nasıl yapılacağını kullanıcıya anlatın."
-    },
-    {
       "label": "Metin blokları",
       "entity": "text block",
       "field": {

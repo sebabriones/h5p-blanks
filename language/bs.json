@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Opis zadatka",
-      "default": "Unesite riječ koja nedostaje.",
-      "description": "Tekst uputstva korisniku koji mu kazuje kako će odgovoriti na zadatak."
-    },
-    {
       "label": "Popuni praznine",
       "entity": "Popuni praznine",
       "field": {

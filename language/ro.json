@@ -305,11 +305,6 @@
       ]
     },
     {
-      "label": "Task description",
-      "default": "Fill in the missing words",
-      "description": "A guide telling the user how to answer this task."
-    },
-    {
       "label": "Text blocks",
       "entity": "text block",
       "field": {
