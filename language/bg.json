@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Медия",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Тип",
-          "description": "Незадължителна медия, която да се показва над въпроса."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Деактивиране мащабирането на изображения"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

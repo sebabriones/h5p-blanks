@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "媒体",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "类型",
-          "description": "用于显示该问题的可选媒体."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "禁止图片缩放"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

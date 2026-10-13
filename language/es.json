@@ -283,14 +283,23 @@
       ]
     },
     {
-      "label": "Medios",
+      "label": "Contexto (opcional)",
       "fields": [
         {
-          "label": "Tipo",
-          "description": "Medios opcionales mostrados encima de la pregunta."
+          "label": "Texto de contexto",
+          "description": "Texto de apoyo opcional junto a la oración."
         },
         {
-          "label": "Deshabilitar acercamiento de imagen"
+          "label": "Imagen de contexto",
+          "fields": [
+            {
+              "label": "Imagen",
+              "description": "Imagen opcional junto a la oración."
+            },
+            {
+              "label": "Desactivar zoom de imagen"
+            }
+          ]
         }
       ]
     },

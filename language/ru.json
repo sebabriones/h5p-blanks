@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Медиа",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Тип",
-          "description": "Дополнительное медиа для отображения над вопросом."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Отключить изменение масштаба изображения"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

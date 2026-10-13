@@ -284,16 +284,25 @@
       ]
     },
     {
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Төрөл",
-          "description": "Асуултын дээр харуулах нэмэлт медиа."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Зургийн томруулагчийг идэвхгүй болгох"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
-      ],
-      "label": "Медиа"
+      ]
     },
     {
       "default": "Алга болсон үгсийг нөхөж бичнэ үү",

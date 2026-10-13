@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Media",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Type",
-          "description": "Valgfrit medie der vises over spørgsmålet."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Slå zoom på billeder fra."
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

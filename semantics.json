@@ -695,39 +695,67 @@
     ]
   },
   {
-    "name": "media",
+    "name": "context",
     "type": "group",
-    "label": "Media",
-    "importance": "medium",
+    "label": "Context (optional)",
+    "importance": "low",
+    "optional": true,
     "fields": [
       {
-        "name": "type",
-        "type": "library",
-        "label": "Type",
-        "options": [
-          "H5P.Image 1.1",
-          "H5P.Video 1.6",
-          "H5P.Audio 1.5"
-        ],
+        "name": "text",
+        "type": "text",
+        "widget": "html",
+        "label": "Context text",
+        "importance": "medium",
         "optional": true,
-        "description": "Optional media to display above the question."
+        "description": "Optional supporting text shown beside the sentence.",
+        "tags": [
+          "p",
+          "br",
+          "strong",
+          "em",
+          "ul",
+          "ol",
+          "li",
+          "code"
+        ]
       },
       {
-        "name": "disableImageZooming",
-        "type": "boolean",
-        "label": "Disable image zooming",
-        "importance": "low",
-        "default": false,
+        "name": "media",
+        "type": "group",
+        "label": "Context image",
+        "importance": "medium",
         "optional": true,
-        "widget": "showWhen",
-        "showWhen": {
-          "rules": [
-            {
-              "field": "type",
-              "equals": "H5P.Image 1.1"
+        "fields": [
+          {
+            "name": "type",
+            "type": "library",
+            "label": "Image",
+            "importance": "medium",
+            "options": [
+              "H5P.Image 1.1"
+            ],
+            "optional": true,
+            "description": "Optional image shown beside the sentence."
+          },
+          {
+            "name": "disableImageZooming",
+            "type": "boolean",
+            "label": "Disable image zooming",
+            "importance": "low",
+            "default": false,
+            "optional": true,
+            "widget": "showWhen",
+            "showWhen": {
+              "rules": [
+                {
+                  "field": "type",
+                  "equals": "H5P.Image 1.1"
+                }
+              ]
             }
-          ]
-        }
+          }
+        ]
       }
     ]
   },

@@ -290,14 +290,23 @@
       ]
     },
     {
-      "label": "Медиа",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Навъи",
-          "description": "Объектҳои медиавӣ ихтиёрӣ барои намоиш дар болои савол."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the sentence."
         },
         {
-          "label": "Disable image zooming"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the sentence."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

@@ -1,6 +1,70 @@
 .h5p-blanks-cfrd {
   position: relative;
 }
+
+.h5p-blanks-cfrd .h5p-blanks-slide-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1em;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.h5p-blanks-cfrd .h5p-blanks-context {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 0.5em;
+  text-align: left;
+}
+
+.h5p-blanks-cfrd .h5p-blanks-context-text {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #555555;
+}
+
+.h5p-blanks-cfrd .h5p-blanks-context-text p {
+  margin: 0 0 0.5em;
+}
+
+.h5p-blanks-cfrd .h5p-blanks-context-text p:last-child {
+  margin-bottom: 0;
+}
+
+.h5p-blanks-cfrd .h5p-blanks-context-media {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.h5p-blanks-cfrd .h5p-blanks-context-media .h5p-image {
+  width: 100%;
+  max-width: 100%;
+}
+
+.h5p-blanks-cfrd .h5p-blanks-context-media .h5p-image > img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.h5p-blanks-cfrd .h5p-blanks-question-column {
+  min-width: 0;
+}
+
+.h5p-blanks-cfrd .h5p-blanks-context--text-only .h5p-blanks-context-media,
+.h5p-blanks-cfrd .h5p-blanks-context--image-only .h5p-blanks-context-text {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .h5p-blanks-cfrd .h5p-blanks-slide-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 .h5p-blanks-cfrd .h5p-input-wrapper {
   display: inline-block;
   position: relative;

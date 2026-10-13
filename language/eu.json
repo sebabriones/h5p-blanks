@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Multimedia",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Mota",
-          "description": "Galderaren gainean bistaratzeko aukerako multimedia."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Desgaitu irudien zooma"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

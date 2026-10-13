@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Media",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Tyyppi",
-          "description": "Valinnainen kuva tai video, joka näkyy kysymyksen yläpuolella."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Estä kysymykseen liitetyn kuvan suurentaminen"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

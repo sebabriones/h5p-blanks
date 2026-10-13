@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Medios",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Tipo",
-          "description": "Medios adicionais amosados enriba da pregunta."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Desactivar zoom da imaxe"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

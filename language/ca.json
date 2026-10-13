@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Recurs",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Tipus",
-          "description": "Recursos opcionals per mostrar al damunt de la pregunta."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Desactiva el zoom de les imatges"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

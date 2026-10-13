@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Medya",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Yazınız",
-          "description": "Soru üzerinde görüntülenecek isteğe bağlı ortam."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Resim yakınlaştırmasını iptal et."
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

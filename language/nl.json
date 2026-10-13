@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Media",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Type",
-          "description": "Optionele media, die boven de vraag wordt getoond."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Beeld zoomen uitschakelen"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

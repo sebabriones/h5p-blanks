@@ -125,6 +125,193 @@ H5P.BlanksCFRD = (function ($, Question) {
   }
 
   /**
+   * @param {string} html
+   * @returns {string}
+   */
+  function stripHtmlText(html) {
+    var decoder = document.createElement('div');
+    decoder.innerHTML = html || '';
+    return (decoder.textContent || decoder.innerText || '').replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
+  }
+
+  /**
+   * @param {object} context
+   * @returns {boolean}
+   */
+  function hasContextText(context) {
+    return !!(context && context.text && stripHtmlText(context.text));
+  }
+
+  /**
+   * @param {object} context
+   * @returns {boolean}
+   */
+  function hasContextImage(context) {
+    var media = context && context.media;
+    var type = media && media.type;
+    return !!(type && type.library && type.params && type.params.file);
+  }
+
+  /**
+   * @param {object} context
+   * @returns {string|null}
+   */
+  function getContextLayoutClass(context) {
+    var hasText = hasContextText(context);
+    var hasImage = hasContextImage(context);
+
+    if (!hasText && !hasImage) {
+      return null;
+    }
+
+    if (hasText && hasImage) {
+      return 'h5p-blanks-context--both';
+    }
+
+    if (hasText) {
+      return 'h5p-blanks-context--text-only';
+    }
+
+    return 'h5p-blanks-context--image-only';
+  }
+
+  /**
+   * @param {object} context
+   * @param {number} contentId
+   * @param {H5P.jQuery} $container
+   */
+  function attachContextImage(context, contentId, $container) {
+    var media = context && context.media;
+    var library = media && media.type;
+
+    if (!library || !library.library || !$container || !$container.length) {
+      return;
+    }
+
+    H5P.newRunnable(library, contentId, $container);
+  }
+
+  /**
+   * @param {H5P.BlanksCFRD} instance
+   */
+  function scheduleContextImageAttach(instance) {
+    var pending = instance.pendingContextImage;
+
+    if (!pending || !pending.$container || !pending.$container.length) {
+      return;
+    }
+
+    [0, 50, 200].forEach(function (delay) {
+      setTimeout(function () {
+        if (!pending.$container || !pending.$container.length) {
+          return;
+        }
+
+        if (pending.$container.children().length) {
+          return;
+        }
+
+        attachContextImage(pending.context, instance.contentId, pending.$container);
+      }, delay);
+    });
+  }
+
+  /**
+   * Mueve la imagen superior antigua a context.media. Video y audio no se conservan.
+   *
+   * @param {object} params
+   */
+  function migrateMediaToContext(params) {
+    var media;
+    var library;
+
+    if (!params || params.context || !params.media) {
+      return;
+    }
+
+    media = params.media;
+    if (!media.type) {
+      delete params.media;
+      return;
+    }
+
+    library = media.type;
+    if (library && library.library && library.library.indexOf('H5P.Image') === 0) {
+      params.context = {
+        media: {
+          type: library,
+          disableImageZooming: media.disableImageZooming || false
+        }
+      };
+    }
+
+    delete params.media;
+  }
+
+  /**
+   * @param {H5P.BlanksCFRD} instance
+   */
+  function registerQuestionContent(instance) {
+    var context = instance.params.context;
+    var layoutClass = getContextLayoutClass(context);
+    var contentClass = instance.params.behaviour.separateLines ? 'h5p-separate-lines' : '';
+    var contextTextId;
+    var $contextMedia;
+    var $layout;
+    var $contextAside;
+    var $questionColumn;
+
+    if (!layoutClass) {
+      instance.setContent(instance.content, {
+        'class': contentClass
+      });
+      return;
+    }
+
+    contextTextId = 'h5p-blanks-context-' + instance.contentId;
+    $layout = $('<div>', {
+      'class': 'h5p-blanks-slide-layout'
+    });
+    $contextAside = $('<aside>', {
+      'class': 'h5p-blanks-context',
+      'aria-label': 'Context'
+    });
+    $questionColumn = $('<div>', {
+      'class': 'h5p-blanks-question-column'
+    });
+
+    if (hasContextText(context)) {
+      instance.content.attr('aria-describedby', contextTextId);
+      $contextAside.append($('<div>', {
+        id: contextTextId,
+        'class': 'h5p-blanks-context-text',
+        html: context.text
+      }));
+    }
+
+    if (hasContextImage(context)) {
+      $contextMedia = $('<div>', {
+        'class': 'h5p-blanks-context-media'
+      });
+      $contextAside.append($contextMedia);
+      instance.pendingContextImage = {
+        context: context,
+        $container: $contextMedia
+      };
+    }
+
+    $questionColumn.append(instance.content);
+    $layout.append($contextAside);
+    $layout.append($questionColumn);
+
+    instance.setContent($('<div>', {
+      'class': 'h5p-blanks-has-context ' + layoutClass
+    }).append($layout), {
+      'class': contentClass
+    });
+  }
+
+  /**
    * @typedef {Object} Params
    *  Parameters/configuration object for Blanks
    *
@@ -202,6 +389,8 @@ H5P.BlanksCFRD = (function ($, Question) {
       instructions: {},
     }, params);
 
+    migrateMediaToContext(self.params);
+
     // Delete empty questions
     for (var i = this.params.questions.length - 1; i >= 0; i--) {
       if (!this.params.questions[i]) {
@@ -235,44 +424,10 @@ H5P.BlanksCFRD = (function ($, Question) {
     this.labelId = 'h5p-blanks-instructions-' + Blanks.idCounter + '-' + H5P.createUUID();
     this.content = self.createQuestions();
 
-    // Check for task media
-    var media = self.params.media;
-    if (media && media.type && media.type.library) {
-      media = media.type;
-      var type = media.library.split(' ')[0];
-      if (type === 'H5P.Image') {
-        if (media.params.file) {
-          // Register task image
-          self.setImage(media.params.file.path, {
-            disableImageZooming: self.params.media.disableImageZooming || false,
-            alt: media.params.alt,
-            title: media.params.title,
-            expandImage: media.params.expandImage,
-            minimizeImage: media.params.minimizeImage
-          });
-        }
-      }
-      else if (type === 'H5P.Video') {
-        if (media.params.sources) {
-          // Register task video
-          self.setVideo(media);
-        }
-      }
-      else if (type === 'H5P.Audio') {
-        if (media.params.files) {
-          // Register task audio
-          self.setAudio(media);
-        }
-      }
-    }
-
     // Register task introduction text
     self.setIntroduction('<div id="' + this.labelId + '">' + self.params.text + '</div>');
 
-    // Register task content area
-    self.setContent(self.content, {
-      'class': self.params.behaviour.separateLines ? 'h5p-separate-lines' : ''
-    });
+    registerQuestionContent(self);
 
     // ... and buttons
     self.registerButtons();
@@ -285,6 +440,7 @@ H5P.BlanksCFRD = (function ($, Question) {
       self.$container = $container;
       self.$instructionsTarget = $container;
       originalAttach.call(self, $container);
+      scheduleContextImageAttach(self);
       scheduleInstructionsAttach(self, $container);
     };
 

@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Média",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Typ",
-          "description": "Volitelná média zobrazená nad otázkou."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Zakázat zvětšení obrazu"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

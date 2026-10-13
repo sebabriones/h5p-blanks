@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "الوسائط",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "النوع",
-          "description": "وسائط إضافية اختيارية تُعرض أعلى السؤال."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "إيقاف ميزة تكبير الصور"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Média",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Type",
-          "description": "Média à afficher au-dessus de la question (facultatif)."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Désactiver l'agrandissement de l'image"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

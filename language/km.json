@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "មេឌា",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "ប្រភេទ",
-          "description": "មេឌាដែលត្រូវបង្ហាញនៅលើសំណួរ (មិនមានក៏បាន)"
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "បិទមុខងារពង្រីកបង្រួមរូបភាព"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

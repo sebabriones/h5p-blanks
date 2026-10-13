@@ -290,16 +290,25 @@
       ]
     },
     {
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "రకం",
-          "description": "ప్రశ్న పైన ప్రదర్శించడానికి ఐచ్ఛిక మీడియా."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the sentence."
         },
         {
-          "label": "చిత్రం జూమ్ చేయడాన్ని డిసేబుల్ చేయండి"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the sentence."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
-      ],
-      "label": "మీడియా"
+      ]
     },
     {
       "label": "టాస్క్ వివరణ",

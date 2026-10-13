@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Media",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Tip",
-          "description": "Suport opțional de afișat deasupra întrebării."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Dezactivați mărirea imaginii"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

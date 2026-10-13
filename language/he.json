@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "מדיה",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "סוג",
-          "description": "ניתן להוסיף תמונה אשר תוצג מעל השאלה."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "ביטול האפשרות להגדלת תמונה"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

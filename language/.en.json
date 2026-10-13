@@ -290,14 +290,23 @@
       ]
     },
     {
-      "label": "Media",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Type",
-          "description": "Optional media to display above the question."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the sentence."
         },
         {
-          "label": "Disable image zooming"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the sentence."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

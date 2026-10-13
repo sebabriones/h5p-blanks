@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Medieelement",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Type",
-          "description": "Valfritt medieelement. Elementet blir plassert over spørsmålet."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Deaktiver zoomingfunksjon."
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

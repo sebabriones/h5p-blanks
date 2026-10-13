@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Медији",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Тип",
-          "description": "Необвезни медији за приказ изнад питања."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Онемогући увеличавање слике"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

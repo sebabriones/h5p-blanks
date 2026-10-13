@@ -5,7 +5,7 @@
   "machineName": "H5P.BlanksCFRD",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 1,
+  "patchVersion": 2,
   "runnable": 1,
   "license": "MIT",
   "author": "sbriones (CFRD-UDEC)",
@@ -54,6 +54,11 @@
       "machineName": "H5P.Instructions",
       "majorVersion": 1,
       "minorVersion": 0
+    },
+    {
+      "machineName": "H5P.Image",
+      "majorVersion": 1,
+      "minorVersion": 1
     }
   ],
   "editorDependencies": [

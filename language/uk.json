@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Медіа",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Тип",
-          "description": "Додаткове медіа для відображення над завданням."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Відключити зміну маштабу зображення"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

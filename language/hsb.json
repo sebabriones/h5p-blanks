@@ -290,14 +290,23 @@
       ]
     },
     {
-      "label": "medije",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "typ",
-          "description": "Móžne medije, kiž so nad prašenjom pokazaja."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the sentence."
         },
         {
-          "label": "zoomowanje do wobraza móžne njeje"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the sentence."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

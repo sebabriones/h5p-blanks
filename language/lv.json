@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "Multivide",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "Tips",
-          "description": "Papildu multimedijs, kuru atspoguļot virs jautājuma."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Atspējot attēla tālummaiņu"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

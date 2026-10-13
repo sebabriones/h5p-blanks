@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "მედია",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "ტიპი",
-          "description": "არააუცილებელი მედია, რომელიც კითხვის თავზე გამოჩნდება."
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "გამორთეთ გამოსახულების მასშტაბირება"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },

@@ -284,14 +284,23 @@
       ]
     },
     {
-      "label": "メディア",
+      "label": "Context (optional)",
       "fields": [
         {
-          "label": "タイプ",
-          "description": "設問の上に表示するオプションのメディア。"
+          "label": "Context text",
+          "description": "Optional supporting text shown beside the text to mark."
         },
         {
-          "label": "Disable image zooming"
+          "label": "Context image",
+          "fields": [
+            {
+              "label": "Image",
+              "description": "Optional image shown beside the text to mark."
+            },
+            {
+              "label": "Disable image zooming"
+            }
+          ]
         }
       ]
     },
