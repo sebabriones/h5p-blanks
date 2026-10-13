@@ -1,19 +1,20 @@
 {
-  "title": "Fill in the Blanks",
+  "title": "Fill in the Blanks (CFRD)",
   "description": "Test your users with fill in the blanks tasks(Cloze tests).",
-  "machineName": "H5P.Blanks",
+  "contentType": "Question",
+  "machineName": "H5P.BlanksCFRD",
   "majorVersion": 1,
-  "minorVersion": 14,
-  "patchVersion": 13,
+  "minorVersion": 0,
+  "patchVersion": 0,
   "runnable": 1,
   "license": "MIT",
-  "author": "Joubel",
+  "author": "sbriones (CFRD-UDEC)",
   "embedTypes": [
     "iframe"
   ],
   "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 19
+    "minorVersion": 23
   },
   "preloadedCss": [
     {
@@ -35,14 +36,14 @@
       "minorVersion": 5
     },
     {
-      "machineName": "H5P.Question",
+      "machineName": "H5P.JoubelUICFRD",
       "majorVersion": 1,
-      "minorVersion": 5
+      "minorVersion": 0
     },
     {
-      "machineName": "H5P.JoubelUI",
+      "machineName": "H5P.QuestionCFRD",
       "majorVersion": 1,
-      "minorVersion": 3
+      "minorVersion": 0
     },
     {
       "machineName": "H5P.TextUtilities",

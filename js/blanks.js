@@ -1,5 +1,5 @@
 /*global H5P*/
-H5P.Blanks = (function ($, Question) {
+H5P.BlanksCFRD = (function ($, Question) {
   /**
    * @constant
    * @default
@@ -37,8 +37,8 @@ H5P.Blanks = (function ($, Question) {
   /**
    * Initialize module.
    *
-   * @class H5P.Blanks
-   * @extends H5P.Question
+   * @class H5P.BlanksCFRD
+   * @extends H5P.QuestionCFRD
    * @param {Params} params
    * @param {number} id Content identification
    * @param {Object} contentData Task specific content data
@@ -47,7 +47,7 @@ H5P.Blanks = (function ($, Question) {
     var self = this;
 
     // Inheritance
-    Question.call(self, 'blanks');
+    Question.call(self, 'blanks-cfrd');
 
     // IDs
     this.contentId = id;
@@ -624,6 +624,12 @@ H5P.Blanks = (function ($, Question) {
     this.resetGrowTextField();
     this.toggleAllInputs(true);
     this.done = false;
+
+    // Nuevo intento: sin delete, setActivityStarted es no-op.
+    delete this.activityStartTime;
+    if (typeof this.setActivityStarted === 'function') {
+      this.setActivityStarted();
+    }
   };
 
   /**
@@ -789,7 +795,7 @@ H5P.Blanks = (function ($, Question) {
   Blanks.prototype.showEvaluation = function () {
     var maxScore = this.getMaxScore();
     var score = this.getScore();
-    var scoreText = H5P.Question.determineOverallFeedback(this.params.overallFeedback, score / maxScore).replace('@score', score).replace('@total', maxScore);
+    var scoreText = H5P.QuestionCFRD.determineOverallFeedback(this.params.overallFeedback, score / maxScore).replace('@score', score).replace('@total', maxScore);
 
     this.setFeedback(scoreText, score, maxScore, this.params.scoreBarLabel);
 
@@ -944,10 +950,10 @@ H5P.Blanks = (function ($, Question) {
   Blanks.idCounter = 0;
 
   return Blanks;
-})(H5P.jQuery, H5P.Question);
+})(H5P.jQuery, H5P.QuestionCFRD);
 
 /**
- * Static utility method for parsing H5P.Blanks qestion into a format useful
+ * Static utility method for parsing H5P.BlanksCFRD qestion into a format useful
  * for creating reports.
  *
  * Example question: 'H5P content may be edited using a *browser/web-browser:something you use every day*.'
@@ -970,8 +976,8 @@ H5P.Blanks = (function ($, Question) {
  *
  * @param {string} question
  */
-H5P.Blanks.parseText = function (question) {
-  var blank = new H5P.Blanks({ question: question });
+H5P.BlanksCFRD.parseText = function (question) {
+  var blank = new H5P.BlanksCFRD({ question: question });
 
   /**
    * Parses a text into an array where words starting and ending
