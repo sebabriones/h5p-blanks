@@ -263,6 +263,8 @@ H5P.BlanksCFRD = (function ($, Question) {
       params.overallFeedback = {
         popupBackgroundColor: '#ffffff',
         feedbackTextColor: '#333333',
+        feedbackBodyFontSize: 1,
+        feedbackCloseIconSize: 1.2,
         overallFeedback: params.overallFeedback
       };
       return;
@@ -274,6 +276,12 @@ H5P.BlanksCFRD = (function ($, Question) {
       }
       if (!params.overallFeedback.feedbackTextColor) {
         params.overallFeedback.feedbackTextColor = '#333333';
+      }
+      if (params.overallFeedback.feedbackBodyFontSize == null) {
+        params.overallFeedback.feedbackBodyFontSize = 1;
+      }
+      if (params.overallFeedback.feedbackCloseIconSize == null) {
+        params.overallFeedback.feedbackCloseIconSize = 1.2;
       }
     }
   }
@@ -548,7 +556,13 @@ H5P.BlanksCFRD = (function ($, Question) {
       questions: [
         "<p>Oslo is the capital of *Norway*.</p>"
       ],
-      overallFeedback: [],
+      overallFeedback: {
+        popupBackgroundColor: '#ffffff',
+        feedbackTextColor: '#333333',
+        feedbackBodyFontSize: 1,
+        feedbackCloseIconSize: 1.2,
+        overallFeedback: []
+      },
       userAnswers: [], // TODO This isn't in semantics?
       showSolutions: "Show solution",
       tryAgain: "Try again",
@@ -1417,6 +1431,9 @@ H5P.BlanksCFRD = (function ($, Question) {
         alwaysShowClose: true,
         dismissible: true,
         popupBackgroundColor: resolved.popupBackgroundColor,
+        feedbackBodyFontSize: resolved.feedbackBodyFontSize,
+        feedbackLeadFontSize: resolved.feedbackLeadFontSize,
+        feedbackCloseIconSize: resolved.feedbackCloseIconSize,
         plainText: resolved.plainText,
         onClose: function () {
           this.showButton('show-feedback');

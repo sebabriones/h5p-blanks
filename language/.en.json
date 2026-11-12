@@ -110,7 +110,11 @@
                       "label": "Button background color",
                       "default": "#1a73d9"
                     },
-                    {
+                                      {
+                    "label": "Highlighted lead font size",
+                    "description": "Font size of the highlighted lead text (relative to the content font).",
+                    "default": 1
+                  },                  {
                       "label": "Gradient background",
                       "fields": [
                         {
@@ -122,7 +126,11 @@
                           "label": "Gradient start color",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {
+                    "label": "Highlighted lead font size",
+                    "description": "Font size of the highlighted lead text (relative to the content font).",
+                    "default": 1
+                  },                  {
                           "label": "Gradient end color",
                           "default": "#1a73d9"
                         }
@@ -151,7 +159,11 @@
                           "label": "Button border color",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {
+                    "label": "Highlighted lead font size",
+                    "description": "Font size of the highlighted lead text (relative to the content font).",
+                    "default": 1
+                  },                  {
                           "label": "Button hover border color",
                           "default": "#1356a3"
                         }
@@ -229,7 +241,11 @@
                       "label": "Button background color",
                       "default": "#1a73d9"
                     },
-                    {
+                                      {
+                    "label": "Highlighted lead font size",
+                    "description": "Font size of the highlighted lead text (relative to the content font).",
+                    "default": 1
+                  },                  {
                       "label": "Gradient background",
                       "fields": [
                         {
@@ -241,7 +257,11 @@
                           "label": "Gradient start color",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {
+                    "label": "Highlighted lead font size",
+                    "description": "Font size of the highlighted lead text (relative to the content font).",
+                    "default": 1
+                  },                  {
                           "label": "Gradient end color",
                           "default": "#1a73d9"
                         }
@@ -270,7 +290,11 @@
                           "label": "Button border color",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {
+                    "label": "Highlighted lead font size",
+                    "description": "Font size of the highlighted lead text (relative to the content font).",
+                    "default": 1
+                  },                  {
                           "label": "Button hover border color",
                           "default": "#1356a3"
                         }
@@ -333,7 +357,16 @@
           "label": "Feedback text color",
           "default": "#333333"
         },
+                {
+          "label": "Feedback body font size",
+          "description": "Font size of the main feedback text in the popup (relative to the content font).",
+          "default": 1
+        },
         {
+          "label": "Feedback close icon size",
+          "description": "Size of the close (X) icon on the feedback popup.",
+          "default": 1.2
+        },        {
           "widgets": [
             {
               "label": "Default"
@@ -366,7 +399,11 @@
                     "label": "Highlighted lead text color",
                     "default": "#1a73d9"
                   },
-                  {
+                                    {
+                    "label": "Highlighted lead font size",
+                    "description": "Font size of the highlighted lead text (relative to the content font).",
+                    "default": 1
+                  },                  {
                     "label": "Text alignment",
                     "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
                     "options": [
@@ -731,7 +768,11 @@
               "label": "Button background color",
               "default": "#1a73d9"
             },
-            {
+                              {
+                    "label": "Highlighted lead font size",
+                    "description": "Font size of the highlighted lead text (relative to the content font).",
+                    "default": 1
+                  },                  {
               "label": "Gradient background",
               "fields": [
                 {
@@ -743,7 +784,11 @@
                   "label": "Gradient start color",
                   "default": "#1a73d9"
                 },
-                {
+                                  {
+                    "label": "Highlighted lead font size",
+                    "description": "Font size of the highlighted lead text (relative to the content font).",
+                    "default": 1
+                  },                  {
                   "label": "Gradient end color",
                   "default": "#1a73d9"
                 }
@@ -772,7 +817,11 @@
                   "label": "Button border color",
                   "default": "#1a73d9"
                 },
-                {
+                                  {
+                    "label": "Highlighted lead font size",
+                    "description": "Font size of the highlighted lead text (relative to the content font).",
+                    "default": 1
+                  },                  {
                   "label": "Button hover border color",
                   "default": "#1356a3"
                 }

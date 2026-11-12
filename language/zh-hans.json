@@ -104,7 +104,7 @@
                       "label": "Button background color",
                       "default": "#1a73d9"
                     },
-                    {
+                                      {},                  {
                       "label": "Gradient background",
                       "fields": [
                         {
@@ -116,7 +116,7 @@
                           "label": "Gradient start color",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {},                  {
                           "label": "Gradient end color",
                           "default": "#1a73d9"
                         }
@@ -145,7 +145,7 @@
                           "label": "Button border color",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {},                  {
                           "label": "Button hover border color",
                           "default": "#1356a3"
                         }
@@ -223,7 +223,7 @@
                       "label": "Button background color",
                       "default": "#1a73d9"
                     },
-                    {
+                                      {},                  {
                       "label": "Gradient background",
                       "fields": [
                         {
@@ -235,7 +235,7 @@
                           "label": "Gradient start color",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {},                  {
                           "label": "Gradient end color",
                           "default": "#1a73d9"
                         }
@@ -264,7 +264,7 @@
                           "label": "Button border color",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {},                  {
                           "label": "Button hover border color",
                           "default": "#1356a3"
                         }
@@ -327,7 +327,8 @@
           "label": "Feedback text color",
           "default": "#333333"
         },
-        {
+                {},
+        {},        {
           "widgets": [
             {
               "label": "預設"
@@ -360,7 +361,7 @@
                     "label": "Highlighted lead text color",
                     "default": "#1a73d9"
                   },
-                  {
+                                    {},                  {
                     "label": "Text alignment",
                     "description": "Only used when no feedback image is set. With an image, text alignment follows image position (left/right: left aligned, above: centered).",
                     "options": [
@@ -741,7 +742,7 @@
               "label": "Button background color",
               "default": "#1a73d9"
             },
-            {
+                              {},                  {
               "label": "Gradient background",
               "fields": [
                 {
@@ -753,7 +754,7 @@
                   "label": "Gradient start color",
                   "default": "#1a73d9"
                 },
-                {
+                                  {},                  {
                   "label": "Gradient end color",
                   "default": "#1a73d9"
                 }
@@ -782,7 +783,7 @@
                   "label": "Button border color",
                   "default": "#1a73d9"
                 },
-                {
+                                  {},                  {
                   "label": "Button hover border color",
                   "default": "#1356a3"
                 }

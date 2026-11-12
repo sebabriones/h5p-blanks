@@ -104,7 +104,11 @@
                       "label": "Color de fondo del botón",
                       "default": "#1a73d9"
                     },
-                    {
+                                      {
+                    "label": "Tamaño de letra del texto destacado",
+                    "description": "Tamaño de letra del texto destacado inicial (relativo a la tipografía del contenido).",
+                    "default": 1
+                  },                  {
                       "label": "Fondo degradado",
                       "fields": [
                         {
@@ -116,7 +120,11 @@
                           "label": "Color inicial del degradado",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {
+                    "label": "Tamaño de letra del texto destacado",
+                    "description": "Tamaño de letra del texto destacado inicial (relativo a la tipografía del contenido).",
+                    "default": 1
+                  },                  {
                           "label": "Color final del degradado",
                           "default": "#1a73d9"
                         }
@@ -145,7 +153,11 @@
                           "label": "Color del borde del botón",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {
+                    "label": "Tamaño de letra del texto destacado",
+                    "description": "Tamaño de letra del texto destacado inicial (relativo a la tipografía del contenido).",
+                    "default": 1
+                  },                  {
                           "label": "Color del borde al pasar el cursor",
                           "default": "#1356a3"
                         }
@@ -222,7 +234,11 @@
                       "label": "Color de fondo del botón",
                       "default": "#1a73d9"
                     },
-                    {
+                                      {
+                    "label": "Tamaño de letra del texto destacado",
+                    "description": "Tamaño de letra del texto destacado inicial (relativo a la tipografía del contenido).",
+                    "default": 1
+                  },                  {
                       "label": "Fondo degradado",
                       "fields": [
                         {
@@ -234,7 +250,11 @@
                           "label": "Color inicial del degradado",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {
+                    "label": "Tamaño de letra del texto destacado",
+                    "description": "Tamaño de letra del texto destacado inicial (relativo a la tipografía del contenido).",
+                    "default": 1
+                  },                  {
                           "label": "Color final del degradado",
                           "default": "#1a73d9"
                         }
@@ -263,7 +283,11 @@
                           "label": "Color del borde del botón",
                           "default": "#1a73d9"
                         },
-                        {
+                                          {
+                    "label": "Tamaño de letra del texto destacado",
+                    "description": "Tamaño de letra del texto destacado inicial (relativo a la tipografía del contenido).",
+                    "default": 1
+                  },                  {
                           "label": "Color del borde al pasar el cursor",
                           "default": "#1356a3"
                         }
@@ -326,7 +350,16 @@
           "label": "Color de texto de la zona de retroalimentación",
           "default": "#333333"
         },
+                {
+          "label": "Tamaño de letra del cuerpo del feedback",
+          "description": "Tamaño de letra del texto principal del feedback en el popup (relativo a la tipografía del contenido).",
+          "default": 1
+        },
         {
+          "label": "Tamaño del icono de cerrar el feedback",
+          "description": "Tamaño del icono de cerrar (X) del popup de feedback.",
+          "default": 1.2
+        },        {
           "widgets": [
             {
               "label": "Por defecto"
@@ -359,7 +392,11 @@
                     "label": "Color del texto destacado",
                     "default": "#1a73d9"
                   },
-                  {
+                                    {
+                    "label": "Tamaño de letra del texto destacado",
+                    "description": "Tamaño de letra del texto destacado inicial (relativo a la tipografía del contenido).",
+                    "default": 1
+                  },                  {
                     "label": "Alineación del texto",
                     "description": "Solo se usa cuando no hay imagen de retroalimentación. Con imagen, la alineación depende de su posición (izquierda/derecha: alineado a la izquierda; encima: centrado).",
                     "options": [
@@ -724,7 +761,11 @@
               "label": "Color de fondo del botón",
               "default": "#1a73d9"
             },
-            {
+                              {
+                    "label": "Tamaño de letra del texto destacado",
+                    "description": "Tamaño de letra del texto destacado inicial (relativo a la tipografía del contenido).",
+                    "default": 1
+                  },                  {
               "label": "Fondo en degradado",
               "fields": [
                 {
@@ -736,7 +777,11 @@
                   "label": "Color inicial del degradado",
                   "default": "#1a73d9"
                 },
-                {
+                                  {
+                    "label": "Tamaño de letra del texto destacado",
+                    "description": "Tamaño de letra del texto destacado inicial (relativo a la tipografía del contenido).",
+                    "default": 1
+                  },                  {
                   "label": "Color final del degradado",
                   "default": "#1a73d9"
                 }
@@ -765,7 +810,11 @@
                   "label": "Color del borde del botón",
                   "default": "#1a73d9"
                 },
-                {
+                                  {
+                    "label": "Tamaño de letra del texto destacado",
+                    "description": "Tamaño de letra del texto destacado inicial (relativo a la tipografía del contenido).",
+                    "default": 1
+                  },                  {
                   "label": "Color del borde del botón al pasar el cursor",
                   "default": "#1356a3"
                 }
