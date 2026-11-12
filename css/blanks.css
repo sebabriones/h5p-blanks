@@ -81,6 +81,17 @@
   background-color: var(--blanks-play-area-bg, #ffffff);
 }
 
+/* Popup is hoisted to play-area (not content) so it centers on the visible frame. */
+.h5p-blanks-cfrd .h5p-blanks-play-area > .h5p-question-feedback.h5p-question-popup {
+  width: min(90%, 100%);
+  max-width: calc(100% - 2em);
+  z-index: 20;
+}
+
+.h5p-blanks-cfrd .h5p-blanks-play-area > .h5p-question-feedback-tail {
+  z-index: 19;
+}
+
 .h5p-has-instructions-tab .h5p-blanks-play-area,
 .h5p-container:has(.h5p-instructions-tab-root) .h5p-blanks-play-area {
   padding-top: max(calc(3.25rem * var(--blanks-scale, 1)), var(--h5p-ins-tab-clearance, 2.75rem));

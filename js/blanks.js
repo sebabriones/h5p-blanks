@@ -306,6 +306,58 @@ H5P.BlanksCFRD = (function ($, Question) {
   }
 
   /**
+   * Whether setFeedback will show overall feedback as a popup in the play area.
+   *
+   * @param {string} content
+   * @param {object} [popupSettings]
+   * @returns {boolean}
+   */
+  function usesFeedbackPopup(content, popupSettings) {
+    return popupSettings != null &&
+      popupSettings.showAsPopup === true &&
+      content !== undefined &&
+      String(content).trim().length > 0;
+  }
+
+  /**
+   * QuestionCFRD appends the feedback popup inside .h5p-question-content.
+   * Move popup + tail to .h5p-blanks-play-area so centering uses the play area.
+   * Must run before Question's deferred positionFeedbackPopup.
+   *
+   * @param {H5P.BlanksCFRD} instance
+   */
+  function hoistFeedbackPopupToPlayArea(instance) {
+    var $playArea = instance && instance.$playArea;
+    var $popup;
+    var $tail;
+
+    if (!$playArea || !$playArea.length) {
+      return;
+    }
+
+    $popup = $playArea.find('.h5p-question-feedback.h5p-question-popup').first();
+    if (!$popup.length) {
+      return;
+    }
+
+    $tail = $popup.siblings('.h5p-question-feedback-tail');
+    if (!$tail.length) {
+      $tail = $playArea.find('.h5p-question-feedback-tail').first();
+    }
+
+    if (!$popup.parent().is($playArea)) {
+      $popup.appendTo($playArea);
+    }
+
+    if ($tail.length && !$tail.parent().is($playArea)) {
+      $tail.appendTo($playArea);
+    }
+  }
+
+  /**
+   * Move inline scorebar/feedback out of the play area.
+   * Popup feedback stays in the play area (direct child after hoist).
+   *
    * @param {H5P.jQuery} $container
    */
   function normalizeInlineEvaluationLayout($container) {
@@ -643,13 +695,25 @@ H5P.BlanksCFRD = (function ($, Question) {
 
     var originalSetFeedback = self.setFeedback;
     if (typeof originalSetFeedback === 'function') {
-      self.setFeedback = function () {
+      self.setFeedback = function (content, score, maxScore, scoreBarLabel, helpText, popupSettings) {
         var result = originalSetFeedback.apply(self, arguments);
 
-        if (self.$container && self.$container.length) {
+        if (usesFeedbackPopup(content, popupSettings)) {
+          hoistFeedbackPopupToPlayArea(self);
+        }
+        else if (self.$container && self.$container.length) {
           scheduleInlineEvaluationLayout(self.$container);
         }
 
+        return result;
+      };
+    }
+
+    var originalShowFeedbackPopup = self.showFeedbackPopup;
+    if (typeof originalShowFeedbackPopup === 'function') {
+      self.showFeedbackPopup = function () {
+        var result = originalShowFeedbackPopup.apply(self, arguments);
+        hoistFeedbackPopupToPlayArea(self);
         return result;
       };
     }
